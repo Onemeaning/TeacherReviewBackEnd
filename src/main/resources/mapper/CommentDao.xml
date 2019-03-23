@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.CommentDao" >  
+
+	 <select id="quaryComment" resultType="com.meanlam.te.entity.Comment">
+		SELECT source_id,u_photo,u_comments,u_nickName,u_insertTime
+		FROM user_comment
+		WHERE t_id=#{tId} 
+		ORDER BY u_insertTime
+		DESC	
+	</select>
+		
+	<insert id="insertComment" parameterType="com.meanlam.te.entity.Comment">
+		INSERT INTO 
+			user_comment(source_id,u_photo,u_comments,u_nickName,u_insertTime,t_id)
+		VALUES (#{sourceId},#{uPhoto},#{uComments},#{uNickName},#{uInsertTime},#{tId})
+	</insert>
+	
+	<delete id="deleteComment" parameterType="com.meanlam.te.entity.Comment">
+		DELETE FROM user_comment
+		WHERE source_id = #{sourceId} AND u_insertTime = #{uInsertTime}
+	</delete>
+
+</mapper>  

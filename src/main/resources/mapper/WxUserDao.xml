@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.WxUserDao" >  
+	<!-- <select id="quaryArea" resultType="com.meanlam.demo.entity.Area">
+		SELECT area_id,area_name,priority,create_time,last_edit_time
+		FROM tb_area
+		ORDER BY priority
+		DESC	
+	</select>
+	
+	<select id="quaryAreaById" resultType="com.meanlam.demo.entity.Area">
+		SELECT area_id,area_name,priority,create_time,last_edit_time
+		FROM tb_area
+		WHERE area_id=#{areaId} 				
+	</select> -->
+	
+
+	<insert id="insertWxUser" useGeneratedKeys="true" keyProperty="uWxid" 
+	keyColumn="u_wxid" parameterType="com.meanlam.te.entity.WxUserInfo">
+		INSERT INTO 
+			user_info(u_wxid,u_photo,u_nickname,u_country,u_province,u_city,u_gender)
+		VALUES (#{uWxid},#{uPhoto},#{uNickname},#{uCountry},#{uProvince},#{uCity},#{uGender})
+	</insert>
+	
+	<!-- <update id="updateArea" parameterType="com.meanlam.demo.entity.Area">
+	 update tb_area
+	 <set>
+	 	<if test="areaName != null "> area_name = #{areaName}, </if>
+		 <if test="priority != null "> priority = #{priority}, </if>
+		 <if test="lastEditTime != null "> last_edit_time = #{lastEditTime} </if>
+	 </set>
+		WHERE area_id = #{areaId}
+	</update>
+	
+	<delete id="deleteArea">
+		DELETE FROM tb_area
+		WHERE area_id = #{areaId}
+	</delete>
+	-->
+</mapper>  

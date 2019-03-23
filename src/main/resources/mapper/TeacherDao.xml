@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.TeacherDao" >  
+
+<!-- private String tId;
+	private String tName;
+	private String tAffiliation;
+	private String tEmail;
+	private String tIntroduction;
+	private String tResearchInterest;
+	private String tPublishedPaper;
+	private String tProjects;
+	private String tPhoto;
+	private int tThumpUpCounts;
+	private String tDetailLink; -->
+	
+	<select id="findByAffiliation" parameterType="com.meanlam.te.entity.Teacher" resultType="com.meanlam.te.entity.Teacher">
+			SELECT t_id,t_name,t_affiliation,t_email,t_introduction,t_researchInterest,t_photo,t_thumpUpCounts,t_detailLink,
+			t_publishedPaper,t_projects
+			FROM teacher_info
+			<where>
+				<if test="tAffiliation != null">
+                and t_affiliation like concat(concat("%",#{tAffiliation}),"%")
+            </if>
+			</where>
+	</select>
+	
+	<select id="findTopFive"  resultType="com.meanlam.te.entity.Teacher">
+			SELECT *
+			FROM teacher_info
+			ORDER BY t_thumpUpCounts DESC 
+			LIMIT 5	
+	</select>
+	
+		
+		
+	<select id="findByTeacherId" resultType="com.meanlam.te.entity.Teacher">
+			SELECT *
+			FROM teacher_info
+			WHERE t_id=#{tId}
+	</select>
+
+
+	 <update id="updateThumpUp" parameterType="com.meanlam.te.entity.Teacher" >
+		 UPDATE teacher_info
+		 <set>
+		 	<if test="tThumpUpCounts != null "> t_thumpUpCounts = #{tThumpUpCounts}, </if>
+		 </set>
+			WHERE t_id = #{tId}
+	</update>
+
+
+	<insert id="addATeacher" useGeneratedKeys="true" keyProperty="tId" 
+		keyColumn="t_id" parameterType="com.meanlam.te.entity.Teacher">
+		INSERT INTO 
+			teacher_info(t_id,t_name,t_affiliation,t_email,t_introduction,t_researchInterest,
+			t_publishedPaper,t_projects,t_photo,t_thumpUpCounts,t_detailLink)
+		VALUES (#{tId},#{tName},#{tAffiliation},#{tEmail},#{tIntroduction},#{tResearchInterest},#{tPublishedPaper},
+		#{tProjects},#{tPhoto},#{tThumpUpCounts},#{tDetailLink})
+	</insert>
+	
+</mapper>  
