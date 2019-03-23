@@ -3,7 +3,7 @@
 具体功能包含如下：
 
 1、用户可以借助微信小程序授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；
-![照片](blob/master/src/main/resources/static/p1.jpg)
+![照片](src/main/resources/static/p1.jpg)
 2、获取点赞数前五的老师信息；
 3、按照学校院系的方式模糊查询该系的老师，同时返回该系点赞数前五的老师名单；
 4、案老师ID查询老师的具体信息；
