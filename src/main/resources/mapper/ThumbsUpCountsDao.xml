@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.ThumbsUpCountsDao" >  
+
+	 <select id="findRecords" resultType="com.meanlam.te.entity.ThumbsUpCounts">
+		SELECT *
+		FROM tb_thumbsup
+		WHERE source_id=#{sourceId} AND dest_id = #{destId}
+	</select>
+		
+	
+	 <select id="findRecordsCounts" resultType="com.meanlam.te.entity.ThumbsUpCounts">
+		SELECT *
+		FROM tb_thumbsup
+		WHERE dest_id = #{destId} AND teacher_uniqueId IS NULL AND comment_id IS NULL
+	</select>	
+		
+		
+	<insert id="insertCounts" parameterType="com.meanlam.te.entity.ThumbsUpCounts">
+		INSERT INTO 
+			tb_thumbsup(source_id,dest_id,thumpsUpTime)
+		VALUES (#{sourceId},#{destId},#{thumpsUpTime})
+	</insert>
+	
+	<delete id="deleteThumbsUpCounts">
+		DELETE FROM tb_thumbsup
+		WHERE source_id=#{sourceId} AND dest_id = #{destId}
+	</delete>
+	
+	<!-- *****************以下是对评论的点赞情况操作的******************* -->
+	<insert id="insertCommentSupportCounts" parameterType="com.meanlam.te.entity.ThumbsUpCounts">
+		INSERT INTO 
+			tb_thumbsup(teacher_uniqueId,comment_id,source_id,dest_id,thumpsUpTime)
+		VALUES (#{teacherUniqueId},#{commentId},#{sourceId},#{destId},#{thumpsUpTime})
+	</insert>
+	
+	<!-- 实现分组查询 -->  
+   <select id="getDestIdWithCounts" resultType="com.meanlam.te.entity.ThumbsCountsResult">
+		SELECT comment_id AS commentId,
+		COUNT(comment_id) AS everyCommentCounts
+		FROM tb_thumbsup 
+		WHERE teacher_uniqueId = #{teacherUniqueId} 
+		GROUP BY comment_id 
+	</select>	
+	
+	<delete id="deleteCommentSupportCounts">
+		DELETE FROM tb_thumbsup
+		WHERE source_id=#{sourceId} AND comment_id = #{commentId}
+	</delete>
+	
+	 <select id="queryCommentSupportCounts" resultType="com.meanlam.te.entity.ThumbsCountsResult">
+		SELECT comment_id AS commentId,
+		COUNT(comment_id) AS everyCommentCounts
+		FROM tb_thumbsup 
+		WHERE teacher_uniqueId = #{teacherUniqueId} and source_id=#{sourceId}
+		GROUP BY comment_id 
+	</select>	
+	
+	
+	
+
+</mapper>  

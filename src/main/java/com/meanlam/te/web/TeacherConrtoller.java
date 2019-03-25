@@ -28,10 +28,11 @@ public class TeacherConrtoller {
 		return modelMap;
 	}
 	
-	@RequestMapping(value="/findByAffiliation",method=RequestMethod.GET)
-	public Map<String,Object> findByAffiliation(String affiliation){		
+	@RequestMapping(value = "/findByAffiliation",method=RequestMethod.GET)
+	public Map<String,Object> findByAffiliation(String tAffiliation)//！！！！这个参数，与前端传过来的参数是要一一对应的，而不是和实体类中参数对应。
+	{		
 		Map<String, Object> modelMap = new HashMap<String,Object>();
-		List<Teacher> teachers = teacherService.findByAffiliation(affiliation);
+		List<Teacher> teachers = teacherService.findByAffiliation(tAffiliation);	
 		modelMap.put("teachers", teachers);
 		return modelMap;
 	}

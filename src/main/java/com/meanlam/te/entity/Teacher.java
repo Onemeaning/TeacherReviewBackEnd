@@ -11,7 +11,7 @@ public class Teacher {
 	private String tPublishedPaper;
 	private String tProjects;
 	private String tPhoto;
-	private int tThumpUpCounts;
+	private int tThumpUpCounts;//这个字段是需要名字的，现在不改名字了，将它代表为界面的访问数目
 	private String tDetailLink;
 	
 	public String gettId() {

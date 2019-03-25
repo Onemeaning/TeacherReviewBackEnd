@@ -19,7 +19,8 @@ public class TeacherServiceImp implements TeacherService{
 	@Override
 	public List<Teacher> findByAffiliation(String affiliation) {
 		
-		return teacherDao.findByAffiliation(affiliation);
+		String aString = "%" + affiliation + "%";
+		return teacherDao.findByAffiliation(aString);
 	}
 
 	@Override
