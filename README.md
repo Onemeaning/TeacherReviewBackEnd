@@ -51,4 +51,4 @@
 
 <a name = "联系方式"><a/>
 ## 联系方式
-  *email:*wminglin@hnu.edu.cn;
+　　**email:**wminglin@hnu.edu.cn;
