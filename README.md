@@ -23,7 +23,7 @@
 <a name = "功能介绍"><a/>
 ## 功能介绍
   <a name = "版本1.0"><a/>
-　### 1.0版本功能体验
+### 1.0版本功能体验
 >>* 用户可以借助`微信小程序`授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；<br/><br/>
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/authorize.png" height = "300"  alt = "授权界面"/> </div> <br/><br/>
   
@@ -48,7 +48,8 @@
 >>* 可以点赞老师信息
 >>* 所有的点赞信息都只能点赞一次，第二次为取消点赞
 >>* 统计每个老师页面访问次数
-
+ 
+***
 <a name = "联系方式"><a/>
 ## 联系方式
-   email:wminglin@hnu.edu.cn;
+  email: wminglin@hnu.edu.cn;
