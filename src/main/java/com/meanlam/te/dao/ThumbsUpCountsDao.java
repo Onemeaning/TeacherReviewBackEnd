@@ -66,5 +66,13 @@ public interface ThumbsUpCountsDao {
 	 */	
 	List<ThumbsCountsResult> queryCommentSupportCounts(String sourceId, String teacherUniqueId);
 	
+	/**
+	 * 删除一条评论，之后需要清除这条评论相关的点赞情况；
+	 * 
+	 */
+	int deleteCommentRelativeSupports(String commentId);
+	
+	
+	
 	
 }

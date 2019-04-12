@@ -21,9 +21,9 @@ public class TeacherConrtoller {
 	private TeacherService teacherService;
 	
 	@RequestMapping(value = "/topFiveTeachers",method=RequestMethod.GET)
-	public Map<String,Object> topFiveTeachers(){
+	public Map<String,Object> topFiveTeachers(String tAffiliation){
 		Map<String, Object> modelMap = new HashMap<String,Object>();
-		List<Teacher> teachers = teacherService.listTopFiveTeacher();
+		List<Teacher> teachers = teacherService.listTopFiveTeacher(tAffiliation);
 		modelMap.put("success", teachers);
 		return modelMap;
 	}

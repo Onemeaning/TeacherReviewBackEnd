@@ -28,7 +28,7 @@ public interface TeacherService {
 	 * 每日推荐的前十名的老师
 	 * @return
 	 */
-	public List<Teacher> listTopFiveTeacher();
+	public List<Teacher> listTopFiveTeacher(String affiliation);
 	
 	/**
 	 * 更新点赞数

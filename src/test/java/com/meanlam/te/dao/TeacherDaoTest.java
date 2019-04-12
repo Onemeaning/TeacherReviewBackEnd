@@ -48,7 +48,7 @@ public class TeacherDaoTest {
 	@Ignore
 	public void testFindTopFive()
 	{
-		List<Teacher> list = teacherDao.findTopFive();
+		List<Teacher> list = teacherDao.findTopFive("");
 		assertEquals(2, list.size());
 	}
 

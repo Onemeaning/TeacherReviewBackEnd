@@ -97,7 +97,6 @@ public class ThumbsUpCountsController {
 	@RequestMapping(value = "/insertCommentSupportCounts", method = RequestMethod.POST)
 	private Map<String, Object> insertCommentSupportCounts(@RequestBody ThumbsUpCounts thumbsUpCounts)
 	{
-		System.out.println("收到点赞："+thumbsUpCounts);
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("success", thumbsUpCountsService.insertCommentSupportCounts(thumbsUpCounts));
 		return modelMap;
@@ -110,8 +109,6 @@ public class ThumbsUpCountsController {
 	private Map<String, Object> deleteCommentSupportCounts(String sourceId, String commentId)
 	{
 		Map<String, Object> modelMap = new HashMap<String, Object>();
-		
-		System.out.println("删除点赞："+sourceId+":"+commentId);
 		modelMap.put("success", thumbsUpCountsService.deleteCommentSupportCounts(sourceId, commentId));
 		return modelMap;
 	}

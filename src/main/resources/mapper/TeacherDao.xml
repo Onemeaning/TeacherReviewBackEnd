@@ -24,6 +24,7 @@
 	<select id="findTopFive"  resultType="com.meanlam.te.entity.Teacher">
 			SELECT *
 			FROM teacher_info
+			WHERE t_affiliation LIKE #{tAffiliation}
 			ORDER BY t_thumpUpCounts DESC 
 			LIMIT 5	
 	</select>

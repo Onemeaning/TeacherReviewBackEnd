@@ -58,5 +58,10 @@
 	
 	
 	
-
-</mapper>  
+	<delete id="deleteCommentRelativeSupports">
+			DELETE FROM tb_thumbsup
+			WHERE comment_id=#{commentId}
+	</delete>
+	
+	</mapper>  
+	

@@ -36,9 +36,9 @@ public class TeacherServiceImp implements TeacherService{
 	}
 
 	@Override
-	public List<Teacher> listTopFiveTeacher() {
+	public List<Teacher> listTopFiveTeacher(String affiliation) {
 		
-		return teacherDao.findTopFive();
+		return teacherDao.findTopFive("%"+affiliation+"%");
 	}
 
 	@Override

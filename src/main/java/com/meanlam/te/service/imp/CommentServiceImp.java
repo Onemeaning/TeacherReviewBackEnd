@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.meanlam.te.dao.CommentDao;
+import com.meanlam.te.dao.ThumbsUpCountsDao;
 import com.meanlam.te.entity.Comment;
 import com.meanlam.te.service.CommentService;
 
@@ -12,7 +13,11 @@ import com.meanlam.te.service.CommentService;
 public class CommentServiceImp implements CommentService{
 	@Autowired
 	private CommentDao commentDao;
-
+	
+	@Autowired
+	private  ThumbsUpCountsDao thumbsUpCountsDao;
+	
+	
 	@Override
 	public List<Comment> showATeacherComments(String tId) {
 		return commentDao.quaryComment(tId);
@@ -51,6 +56,8 @@ public class CommentServiceImp implements CommentService{
 			try
 			{
 				int effectNum = commentDao.deleteComment(comment);
+				String commentId = comment.getSourceId()+comment.getuInsertTime();
+				thumbsUpCountsDao.deleteCommentRelativeSupports(commentId);
 				if (effectNum > 0)
 				{
 					return true;

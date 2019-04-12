@@ -12,7 +12,7 @@ public interface TeacherDao {
 	 * 根据点赞数选择前五名，用于在首页展示
 	 * @return
 	 */
-	List<Teacher> findTopFive();
+	List<Teacher> findTopFive(String affiliation);
 	
 	
 	/**
