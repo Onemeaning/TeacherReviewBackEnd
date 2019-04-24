@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
 <mapper namespace="com.meanlam.te.dao.WxUserDao" >  
-	<!-- <select id="quaryArea" resultType="com.meanlam.demo.entity.Area">
-		SELECT area_id,area_name,priority,create_time,last_edit_time
-		FROM tb_area
-		ORDER BY priority
-		DESC	
-	</select>
-	
-	<select id="quaryAreaById" resultType="com.meanlam.demo.entity.Area">
-		SELECT area_id,area_name,priority,create_time,last_edit_time
-		FROM tb_area
-		WHERE area_id=#{areaId} 				
-	</select> -->
-	
+
 
 	<insert id="insertWxUser" useGeneratedKeys="true" keyProperty="uWxid" 
 	keyColumn="u_wxid" parameterType="com.meanlam.te.entity.WxUserInfo">
@@ -22,19 +10,31 @@
 		VALUES (#{uWxid},#{uPhoto},#{uNickname},#{uCountry},#{uProvince},#{uCity},#{uGender})
 	</insert>
 	
-	<!-- <update id="updateArea" parameterType="com.meanlam.demo.entity.Area">
-	 update tb_area
-	 <set>
-	 	<if test="areaName != null "> area_name = #{areaName}, </if>
-		 <if test="priority != null "> priority = #{priority}, </if>
-		 <if test="lastEditTime != null "> last_edit_time = #{lastEditTime} </if>
-	 </set>
-		WHERE area_id = #{areaId}
-	</update>
 	
-	<delete id="deleteArea">
-		DELETE FROM tb_area
-		WHERE area_id = #{areaId}
-	</delete>
-	-->
+	<select id="queryUserInfo" parameterType="string" resultType="com.meanlam.te.entity.WxUserInfo">
+			SELECT u_wxid,u_photo,u_nickname,u_country,u_province,u_city,u_gender,u_school,u_college,u_department,u_studentId,u_teacherName
+			FROM user_info
+			WHERE u_wxid = #{uWxid}
+	</select>
+	
+	
+<!-- 	private String uSchool;
+	private String uCollege;
+	private String uDepartment;
+	private String uStudentId;
+	private String uTeacherName;//导师姓名 -->
+	
+	
+	<update id="updateWxUserInfo" parameterType="com.meanlam.te.entity.WxUserInfo">
+	 update user_info
+	 <set>
+	 	  <if test="uSchool != null "> u_school = #{uSchool},</if>
+		  <if test="uCollege != null "> u_college = #{uCollege},</if>
+		  <if test="uDepartment != null "> u_department = #{uDepartment},</if>
+		  <if test="uStudentId != null "> u_studentId = #{uStudentId},</if>
+		  <if test="uTeacherName != null "> u_teacherName = #{uTeacherName}</if>	 		 
+	 </set>
+		WHERE u_wxid = #{uWxid}
+	</update>
+
 </mapper>  

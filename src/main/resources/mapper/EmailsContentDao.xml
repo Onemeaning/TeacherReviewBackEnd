@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.EmailsContentDao" >  
+
+	<!-- private String fromId;
+	private String fromIdImage;
+	private String fromIdNickName;
+	private String toId;
+	private String sendTime;
+	private String emailContent;
+	private boolean checked;//邮件是否被查看的状态，false表示没有被查看
+	private byte[] file;//保存上传的简历完文件 -->
+
+
+	 <select id="findById" resultType="com.meanlam.te.entity.EmailsContent">
+		SELECT fromId,fromIdImage,fromIdNickName,sendTime,emailContent,file,checked
+		FROM emails_content
+		WHERE toId=#{toId} 
+		ORDER BY sendTime
+		DESC	
+	 </select>
+	 
+	 
+		
+	<insert id="insertData" parameterType="com.meanlam.te.entity.EmailsContent">
+		INSERT INTO 
+			emails_content(fromId,fromIdImage,fromIdNickName,toId,sendTime,emailContent,file,checked)
+		VALUES (#{fromId},#{fromIdImage},#{fromIdNickName},#{toId},#{sendTime},#{emailContent},#{file},#{checked})
+	</insert>
+	
+	
+	
+	
+	<delete id="deleteById" parameterType="com.meanlam.te.entity.EmailsContent">
+		DELETE FROM emails_content
+		WHERE fromId = #{fromId} AND toId = #{toId} AND sendTime = #{sendTime}
+	</delete>
+
+
+	<delete id="deleteAll" parameterType="com.meanlam.te.entity.EmailsContent">
+		DELETE FROM emails_content
+		WHERE  toId = #{toId}
+	</delete>
+
+	<update id="updateById">
+		UPDATE emails_content 
+		SET checked = 1
+		WHERE fromId = #{fromId} AND toId = #{toId} AND sendTime = #{sendTime}
+	</update>
+	
+	
+</mapper>  

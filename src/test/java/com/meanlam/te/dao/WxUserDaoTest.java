@@ -32,5 +32,20 @@ public class WxUserDaoTest {
 		int effectNum = wxUserDao.insertWxUser(wxUserInfo);
 		assertEquals(1, effectNum);
 	}
-
+	@Test
+	@Ignore
+	public void testUpdateWxUserInfo()
+	{
+		WxUserInfo wxUserInfo = new WxUserInfo();
+		wxUserInfo.setuWxid("oKnF45PKGIEW1BV3EAw9CBx3FZhc");
+		wxUserInfo.setuSchool("1213");
+		wxUserInfo.setuNickname("meanlam");
+		wxUserInfo.setuCollege("11");
+		wxUserInfo.setuDepartment("212");
+		wxUserInfo.setuStudentId("sss");
+		wxUserInfo.setuTeacherName("11");
+		int effectNum = wxUserDao.updateWxUserInfo(wxUserInfo);
+		assertEquals(1, effectNum);
+	}
+	
 }

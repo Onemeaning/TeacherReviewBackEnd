@@ -10,7 +10,53 @@ public class WxUserInfo {
 	private String uProvince;//用户所在省份
 	private String uGender;//用户性别
 	
+	//********以下是新增的一些用户信息*******************
+	private String uSchool;
+	private String uCollege;
+	private String uDepartment;
+	private String uStudentId;
+	private String uTeacherName;//导师姓名
 	
+	public String getuSchool() {
+		return uSchool;
+	}
+
+	public void setuSchool(String uSchool) {
+		this.uSchool = uSchool;
+	}
+
+	public String getuCollege() {
+		return uCollege;
+	}
+
+	public void setuCollege(String uCollege) {
+		this.uCollege = uCollege;
+	}
+
+	public String getuDepartment() {
+		return uDepartment;
+	}
+
+	public void setuDepartment(String uDepartment) {
+		this.uDepartment = uDepartment;
+	}
+
+	public String getuStudentId() {
+		return uStudentId;
+	}
+
+	public void setuStudentId(String uStudentId) {
+		this.uStudentId = uStudentId;
+	}
+
+	public String getuTeacherName() {
+		return uTeacherName;
+	}
+
+	public void setuTeacherName(String uTeacherName) {
+		this.uTeacherName = uTeacherName;
+	}
+
 	public String getuCountry() {
 		return uCountry;
 	}
@@ -70,8 +116,12 @@ public class WxUserInfo {
 	@Override
 	public String toString() {
 		return "WxUserInfo [uWxid=" + uWxid + ", uPhoto=" + uPhoto + ", uNickname=" + uNickname + ", uCountry="
-				+ uCountry + ", uCity=" + uCity + ", uProvince=" + uProvince + ", uGender=" + uGender + "]";
+				+ uCountry + ", uCity=" + uCity + ", uProvince=" + uProvince + ", uGender=" + uGender + ", uSchool="
+				+ uSchool + ", uCollege=" + uCollege + ", uDepartment=" + uDepartment + ", uStudentId=" + uStudentId
+				+ ", uTeacherName=" + uTeacherName + "]";
 	}
+
+	
 
 	
 

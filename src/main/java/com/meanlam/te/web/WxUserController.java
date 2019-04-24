@@ -22,7 +22,40 @@ public class WxUserController {
 
 	@Autowired
 	private WxUserService wxUserService;
-		
+	
+	/**
+	 * 查询用户信息
+	 * @param wxUserInfo
+	 * @return
+	 */
+	
+	@RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
+	private Map<String, Object> getUserInfo(String uWxid)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		modelMap.put("success", wxUserService.getUserInfo(uWxid));
+		return modelMap;
+	}
+	
+	
+	/*
+	 * 修改用户信息
+	 * @param wxUserInfo
+	 * @return
+	 */
+	@RequestMapping(value = "/modifyUserInfo", method = RequestMethod.POST)
+	private Map<String, Object> modifyUserInfo(@RequestBody WxUserInfo wxUserInfo)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		modelMap.put("success", wxUserService.updateWxUserInfo(wxUserInfo));	
+		return modelMap;
+	}
+	
+	/*
+	 * 添加一个用户信息
+	 * @param wxUserInfo
+	 * @return
+	 */
 	@RequestMapping(value = "/insertWxUser", method = RequestMethod.POST)
 	private Map<String, Object> addAreaById(@RequestBody WxUserInfo wxUserInfo)
 	{
@@ -99,17 +132,6 @@ public class WxUserController {
 				userInfo.put("unionId", userInfoJSON.get("unionId"));								
 				map.put("userInfo", userInfo);		
 				
-				//将用户信息保存导数据库中以后使用
-			/*	WxUserInfo wxUserInfo = new WxUserInfo();
-				wxUserInfo.setuWxid(userInfo.get("openId").toString());				
-				wxUserInfo.setuCountry(userInfo.get("country").toString());
-				wxUserInfo.setuProvince(userInfo.get("province").toString());
-				wxUserInfo.setuCity(userInfo.get("city").toString());
-				wxUserInfo.setuPhoto(userInfo.get("avatarUrl").toString());
-				wxUserInfo.setuNickname(userInfo.get("nickName").toString());
-				String gender = (userInfo.get("gender").toString()).equals("1")?"男":"女";
-				wxUserInfo.setuGender(gender);					
-				wxUserService.insertWxUser(wxUserInfo);*/
 											
 			} else {
 				map.put("status", 0);

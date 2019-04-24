@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.meanlam.te.dao.UserAdviceDao" > 
+ 
+<!--
+	private String userId;
+	private String adviceType;
+	private String adviceContent;
+	private String adviceTime;
+	private byte[] advicePhoto; 
+	
+-->
+
+	<insert id="insertAdvice" parameterType="com.meanlam.te.entity.UserAdvice">
+		INSERT INTO 
+			user_advice(user_id,advice_type,advice_content,advice_time,advice_photo)
+		VALUES (#{userId},#{adviceType},#{adviceContent},#{adviceTime},#{advicePhoto})
+	</insert>
+	
+	
+		
+</mapper>  
+
+

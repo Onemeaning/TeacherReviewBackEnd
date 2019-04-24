@@ -39,4 +39,37 @@ public class WxUserServiceImp implements WxUserService {
 		}
 	}
 
+	
+	@Override
+	@Transactional
+	public boolean updateWxUserInfo(WxUserInfo wxUserInfo) {
+		if (wxUserInfo !=null && wxUserInfo.getuWxid() != null)
+		{
+			try
+			{
+				int effectNum = wxUserDao.updateWxUserInfo(wxUserInfo);
+				if (effectNum > 0)
+				{
+					return true;
+				} else
+				{
+					throw new RuntimeException("更新个人信息失败！");
+				}
+			} catch (Exception e)
+			{
+				throw new RuntimeException("更新个人信息失败:" + e.getMessage());
+			}
+		} else
+		{
+			throw new RuntimeException("更新个人信息ID不能为空！");
+		}
+	}
+
+	
+	@Override
+	public WxUserInfo getUserInfo(String uWxid) {
+		return wxUserDao.queryUserInfo(uWxid);
+	}
+
+	
 }
