@@ -11,6 +11,7 @@
   * [版本1.1](#1.1)
   * [版本1.3](#1.3)
   * [版本1.4](#1.4)
+  * [版本1.5](#1.5)
 * [联系方式](#联系方式)
 
 <a name = "项目背景"><a/>
@@ -27,23 +28,31 @@
 ## 功能介绍
   <a name = "1.0"><a/>
 ### 1.0版本功能体验
->>* 用户可以借助`微信小程序`授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；<br/><br/>
+>>* 用户可以借助`微信小程序`授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；点击 主界面->授权登陆,即可进入程序,您可以选择学生身份或者导师身份登录，如果选择导师的身份，我们需要对您进行人脸识别来认证您的真实身份<br/><br/>
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/authorize.png" height = "300"  alt = "授权界面"/> </div> <br/><br/>
   
+>>* 第一步 进入院校选择界面；在热门导师推荐页面，您可以点击右上角的《学校》按钮来选择具体的专业，我们为您列出了这个专业的所有的老师的热度排名，您可以用左滑的形式，查看所有的导师简介，点击页面则会进入老师页面查看详细信息，您也可以在搜索栏中搜索专业信息，例如搜索《计算机科学与技术》系统会将全国数据库中所有计算机科学与技术专业的导师信息按照热度排序列出，你也可以按照左滑的形式依次查看。<br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/select.png" height = "300"  alt = "推荐导师界面"/> </div> <br/><br/>  
+  
+  
 >>* 获取点赞数前五的老师信息；<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/recomment.jpg" height = "300"  alt = "主页界面面"/> </div> <br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/recommented.png" height = "300"  alt = "主页界面面"/> </div> <br/><br/>
 
->>* 按照学校院系的方式模糊查询该系的老师，同时返回该系点赞数前五的老师名单；<br/><br/>
+>>* 按照学校院系的方式模糊查询该系的老师，或者某个专业的老师；<br/><br/>
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/teachers.png" height = "300"  alt = "老师界面"/> </div> <br/><br/>
 
->>* 按老师ID查询老师的具体信息；<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/deatils.png" height = "300"  alt = "老师详细信息界面"/> </div> <br/><br/>
+>>* 第二步 点击进入导师专业详细信息界面,在这个页面可以查看导师的详细资料，点击下方的点赞按钮，您可以给心仪的老师助力，让他被更多的学生发现，您也可以点击下方评论按钮，给您喜欢的老师点评一下！<br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/details.png" height = "300"  alt = "老师详细信息界面"/> </div> <br/><br/>
 
->>* 用户可以对某个老师进行点评、也可以删除自己的评论（删除品论根据用户的ID+评论时间位移识别）；<br/><br/>
+>>* 第三步 查看导师详细资料和学生评;用户可以对某个老师进行点评、也可以删除自己的评论（删除品论根据用户的ID+评论时间位移识别）；<br/><br/>
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/commmnet.png" height = "300"  alt = "评论界面"/> </div> <br/><br/>
 
->>* 用户可以给老师点赞，每个人为每个老师点赞的次数仅为一次；<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/support.png" height = "300"  alt = "点赞界面"/> </div> <br/><br/>
+>>* 第四步 给心仪的老师发私信,在这个页面你可以给老师发私信，您可以详细的介绍自己，让导师可以更好的了解你，当然你也可以添加照片形式的简历，让老师全面的了解你，这也会增加你被老师选中的机会，祝你好运！<br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/sendEmail.png" height = "300"  alt = "点赞界面"/> </div> <br/><br/>
+
+>>* 第五步 查看老师回复的私信,在这里，您可以看到老师给您的回复，同样您也可以继续回复他，愉快的交流可以让导师最终选择您的几率增大。<br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/me.png" height = "300"  alt = "我的界面"/> </div> <br/><br/>
+
 
 <a name = "1.1"><a/>
 ### 1.1版本更新如下
@@ -63,6 +72,14 @@
 >>* （1）新增给导师私发邮件，回复邮件，查询邮件细节，邮件到达通知，未读邮件个数等功能；
 >>* （2）新增用户可以修改个人信息；
 >>*  (3)新增用户提交的数据保存到数据库中；
+
+<a name = "1.5"><a/>
+### 1.5版本更新如下(2019/5/12本次重要更新)
+>>* 【重要】（1）新增导师认证接口（util包中四个关键类），使用百度AI人脸比对API实现导师身份认证功能（用户上传一张自拍照和数据中存储的老师的证件照）进行比对；比对之后立马删除临时文件夹中的所有文件；
+>>* （2）新增为用户提供查看私信中的简历照片的接口，查询完之后删除临时文件夹的功能；
+>>* （3）更新了使用新的帮助截图（非常好看）；
+>>* （4）前端不再是用advice所提供的接口，这里暂时还有没有删除该接口；
+
 
 
 <a name = "联系方式"><a/>
