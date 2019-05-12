@@ -37,5 +37,24 @@ public interface TeacherService {
 	 */
 	public boolean updateSupportCounts(Teacher teacher);
 	
+	/**
+	 *    根据老师的单位以及名字进行获取老师的照片信息
+	 * @param tId
+	 * @return 一个老师的对象
+	 */
+	public Teacher getTeacherPhoto(String tAffiliation,String tName);
 	
+	/**
+	 *  将老师ID与微信OPENID绑定起来
+	 * @param t1
+	 */
+	public boolean updateTeacherInfo(Teacher t1);
+	
+	/**
+	 * 更新老师的信息；
+	 * @param teacher
+	 * @return
+	 */
+	public boolean updateTeacherDetails(Teacher teacher);
+		
 }

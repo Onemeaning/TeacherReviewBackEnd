@@ -2,17 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+		
 	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
+		<artifactId>spring-boot-starter-parent</artifactId>	
 		<version>2.1.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.nestlab</groupId>
 	<artifactId>wx-te</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>wx-te</name>
 	<description>teacher evaluation</description>
+
+	<!-- 修改打包方式，用于远程部署 -->
+	<!--  <packaging>war</packaging>  -->
+	
+	<!-- ***************************************************** -->
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,14 +29,36 @@
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>		   	    
 		</dependency>
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			
+			<!-- 移除嵌入式tomcat插件 -->
+		<!--     <exclusions>
+		      <exclusion>
+		         <groupId>org.springframework.boot</groupId>
+		         <artifactId>spring-boot-starter-tomcat</artifactId>
+		      </exclusion>
+		    </exclusions>  -->
+		  <!-- ***************************************************** -->
+		  
+		  
+		    
 		</dependency>
 		
+	<!-- 配置远程服务器必须的  -->
+	<!--  <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-tomcat</artifactId>
+	    打包的时候可以不用包进去，别的设施会提供。事实上该依赖理论上可以参与编译，测试，运行等周期。相当于compile，但是打包阶段做了exclude操作
+	    <scope>provided</scope>
+	</dependency> -->
+
+   <!-- ***************************************************** -->
+				
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -44,11 +73,11 @@
 		
 	<!-- 	用于加密解密的 -->
 
-			<dependency>
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.28</version>
-			</dependency>
+		</dependency>
 
 		<dependency>
 		    <groupId>commons-codec</groupId>
@@ -60,7 +89,7 @@
             <groupId>org.bouncycastle</groupId>  
             <artifactId>bcprov-jdk16</artifactId>  
             <version>1.46</version>  
-     </dependency>  
+        </dependency>  
 		
 		
 		
@@ -89,17 +118,71 @@
 		      <artifactId>commons-io</artifactId>
 		      <version>2.4</version>
 	    </dependency>
-	    
 	
+	<!-- **************曹航程新加百度人脸对比API******************** -->
+	 
+	 <dependency>
+            <groupId>com.chc</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json-lib-2.4-jdk15.jar</systemPath>
+     </dependency>
+
+	  <dependency>
+            <groupId>com.chc</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/gson-2.7.jar</systemPath>
+     </dependency>
+     
+      <dependency>
+            <groupId>com.chc</groupId>
+            <artifactId>aip-java-sdk</artifactId>
+            <version>4.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aip-java-sdk-4.3.2.jar</systemPath>
+     </dependency>
+     
+      <dependency>
+            <groupId>com.chc</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json-20160810.jar</systemPath>
+     </dependency>  
+	   
+	      	
 	</dependencies>
 
+<!--将本地的lib/中的所有jar包，在打war包的时候能对应达到WEB/INF/下的lib目录中去-->
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+	<!-- 应与application.properties(或application.yml)中context-path保持一致 -->
+	
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					
+					<configuration>
+				        <webResources>
+					          <resource>
+					              <directory>lib</directory>
+					              <targetPath>WEB-INF/lib/</targetPath>
+					              
+					              <includes>
+					                <include>json-lib-2.4-jdk15.jar</include>
+					                <include>gson-2.7.jar</include>
+					                <include>aip-java-sdk-4.3.2.jar</include>
+					                <include>json-20160810.jar</include>
+					              </includes>   
+					           </resource>  
+				         </webResources>
+				    </configuration>
+		         </plugin>      
+			</plugins>
+			
 	</build>
 
 </project>

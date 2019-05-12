@@ -45,4 +45,26 @@ public interface TeacherDao {
 	 */
 		
 	 int addATeacher(Teacher teacher);
+
+	 /**
+	  * 查询老师照片的地址，
+	  * @param tAffiliation 老师所在单位
+	  * @param tName 老师的名字
+	  * @return
+	  */
+	Teacher getTeacherPhoto(String tAffiliation, String tName);
+
+	/**
+	 *   更新老师的ID
+	 * @param t1
+	 * @return
+	 */
+	int updateTid(Teacher t1);
+
+	/**
+	 * 更新老师的信息
+	 * @param teacher
+	 * @return
+	 */
+	int updateTeacherDetails(Teacher teacher);
 }

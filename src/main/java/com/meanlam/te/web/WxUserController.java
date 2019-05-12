@@ -1,7 +1,10 @@
 package com.meanlam.te.web;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.security.sasl.AuthorizeCallback;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.meanlam.te.entity.WxUserInfo;
 import com.meanlam.te.service.WxUserService;
 import com.meanlam.te.util.AesCbcUtil;
+import com.meanlam.te.util.CommonUtils;
 import com.meanlam.te.util.HttpRequest;
 
 @RestController
@@ -22,7 +26,7 @@ public class WxUserController {
 
 	@Autowired
 	private WxUserService wxUserService;
-	
+		
 	/**
 	 * 查询用户信息
 	 * @param wxUserInfo
@@ -38,6 +42,34 @@ public class WxUserController {
 	}
 	
 	
+	/**
+	 * 往前微信端发送图片文件，HomeIndex需要的照片
+	 * @param uWxid
+	 * @return
+	 */
+	@RequestMapping(value = "/getStaticPhoto", method = RequestMethod.GET)
+	private Map<String, Object> getStaticPhoto()
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		String[] photoArray = new String[] {CommonUtils.MYURL+"hardworking.jpg",CommonUtils.MYURL+"happy.jpg",CommonUtils.MYURL+"thinking.jpg",CommonUtils.MYURL+"recommending.jpg"};
+		modelMap.put("photos", photoArray);
+	
+		return modelMap;
+	}
+	
+	/**
+	 * 往前微信端发送图片文件，Help页面需要的图片
+	 * @param uWxid
+	 * @return
+	 */
+	@RequestMapping(value = "/getStaticPhotoOfHelp", method = RequestMethod.GET)
+	private Map<String, Object> getStaticPhotoOfHelp()
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		String[] photoArray = new String[] {CommonUtils.MYURL+"authorize.png",CommonUtils.MYURL+"select.png",CommonUtils.MYURL+"details.png",CommonUtils.MYURL+"comment.png",CommonUtils.MYURL+"sendEmail.png",CommonUtils.MYURL+"me.png"};
+		modelMap.put("photosHelp", photoArray);	
+		return modelMap;
+	}
 	/*
 	 * 修改用户信息
 	 * @param wxUserInfo

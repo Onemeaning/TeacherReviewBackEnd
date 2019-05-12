@@ -26,7 +26,6 @@
 			FROM teacher_info
 			WHERE t_affiliation LIKE #{tAffiliation}
 			ORDER BY t_thumpUpCounts DESC 
-			LIMIT 5	
 	</select>
 	
 		
@@ -34,17 +33,48 @@
 	<select id="findByTeacherId" resultType="com.meanlam.te.entity.Teacher">
 			SELECT *
 			FROM teacher_info
-			WHERE t_id=#{tId}
+			WHERE t_id=#{tId}		
 	</select>
 
 
+	<select id="getTeacherPhoto" resultType="com.meanlam.te.entity.Teacher">
+			SELECT *
+			FROM teacher_info
+			WHERE t_affiliation = #{tAffiliation} AND t_name  = #{tName}
+	</select>
+	
+	
 	 <update id="updateThumpUp" parameterType="com.meanlam.te.entity.Teacher" >
 		 UPDATE teacher_info
 		 <set>
 		 	<if test="tThumpUpCounts != null "> t_thumpUpCounts = #{tThumpUpCounts}, </if>
 		 </set>
 			WHERE t_id = #{tId}
-	</update>
+	  </update>
+
+
+	<update id="updateTid" parameterType="com.meanlam.te.entity.Teacher" >
+		 UPDATE teacher_info
+		 <set>
+		 	<if test="tId != null "> t_id = #{tId}, </if>
+		 </set>
+		WHERE t_affiliation = #{tAffiliation} AND t_name = #{tName}
+    </update>
+    
+	<update id="updateTeacherDetails" parameterType="com.meanlam.te.entity.Teacher" >
+		 UPDATE teacher_info
+		 <set>
+		 	<if test="tName != null"> t_name = #{tName},</if>
+		 	<if test="tAffiliation != null"> t_affiliation = #{tAffiliation},</if>
+		 	<if test="tEmail != null "> t_email = #{tEmail},</if>
+		 	<if test="tIntroduction != null"> t_introduction = #{tIntroduction},</if>
+		 	<if test="tResearchInterest != null"> t_researchInterest = #{tResearchInterest},</if>
+		 	<if test="tProjects != null"> t_projects = #{tProjects},</if>
+		 	<if test="tPublishedPaper != null"> t_publishedPaper = #{tPublishedPaper},</if>
+		 </set>		 
+		WHERE t_id = #{tId}
+    </update>
+	
 
 
 	<insert id="addATeacher" useGeneratedKeys="true" keyProperty="tId" 

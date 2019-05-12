@@ -12,6 +12,15 @@ public class EmailsContent {
 	private String emailContent;
 	private boolean checked;//邮件是否被查看的状态，false表示没有被查看
 	private byte[] file;//保存上传的简历完文件
+	private String resumeUrl;//获取URL的时候给这个赋值;
+	
+	
+	public String getResumeUrl() {
+		return resumeUrl;
+	}
+	public void setResumeUrl(String resumeUrl) {
+		this.resumeUrl = resumeUrl;
+	}
 	public String getFromId() {
 		return fromId;
 	}

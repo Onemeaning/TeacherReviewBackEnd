@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.meanlam.te.entity.EmailsContent;
 import com.meanlam.te.entity.UserAdvice;
 import com.meanlam.te.service.EmailsContentService;
+import com.meanlam.te.util.CommonUtils;
 
 @RestController
 @RequestMapping("/superadmin")
@@ -43,11 +44,42 @@ public class EmailsContentController {
 	{
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		List<EmailsContent> emailsList = emailsContentService.getAllEmails(toId);
+		for (EmailsContent emailsContent : emailsList)
+		{
+			byte[] bys = emailsContent.getFile();
+			if (bys!=null)
+			{
+				emailsContent.setResumeUrl(CommonUtils.MYURL+"tempImages/"+CommonUtils.writeBytesToFile(bys));		
+			}				
+		}
 		modelMap.put("success", emailsList);//这个键（success）会在客户端直接获取
 		return modelMap;
 	}
 	
 	
+	/*
+	 * 根据前台传来的临时的图片的URL地址删除文件
+	 */
+	@RequestMapping(value = "/deletetempPic", method = RequestMethod.GET)
+	private Map<String, Object> deletetempPic(String resumeUrl)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		boolean result = false;
+		try
+		{
+		//获取跟目录             	
+		String urlPath = ResourceUtils.getURL("classpath:").getPath();              	
+		File contextPath = new File(URLDecoder.decode(urlPath, "UTF-8"));  
+		String tempFilePath = contextPath+"\\static\\"+resumeUrl+"\\";
+		result = CommonUtils.deleteFolder(tempFilePath);		
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+		}		
+		modelMap.put("success", result);//这个键（success）会在客户端直接获取
+		return modelMap;
+	}
+		
 	/*
 	 * 根据自己的ID，将邮件的查看状态设置为已查看
 	 */
@@ -97,6 +129,20 @@ public class EmailsContentController {
 		return modelMap;
 	}
 	
+	
+	/*
+	 * 系统通知信息,（写一封没有照片的私信）
+	 * @return
+	 */
+	@RequestMapping(value="/notifyInfo",method = RequestMethod.POST)
+	private Map<String, Object> notifyInfo(@RequestBody EmailsContent emailsContent)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();		
+		modelMap.put("success", emailsContentService.writeEmail(emailsContent));
+		System.out.println(modelMap.get("success"));
+		return modelMap;
+	}
+
 	
 	/**
 	 *     写邮件

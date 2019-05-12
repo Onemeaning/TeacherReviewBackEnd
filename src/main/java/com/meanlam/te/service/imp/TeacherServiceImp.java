@@ -67,4 +67,65 @@ public class TeacherServiceImp implements TeacherService{
 		}
 	}
 
+	@Override
+	public Teacher getTeacherPhoto(String tAffiliation, String tName) {
+		
+		return  teacherDao.getTeacherPhoto(tAffiliation,tName);
+	}
+
+	@Override
+	@Transactional
+	public boolean updateTeacherInfo(Teacher t1) {
+		
+		if (t1.gettAffiliation()!=null && t1.gettName()!=null)
+		{
+			try
+			{
+				int effectNum = teacherDao.updateTid(t1);
+				if (effectNum > 0)
+				{
+					return true;
+					
+				} else
+				{
+					throw new RuntimeException("更新老师ID成功！");
+				}
+			} catch (Exception e)
+			{
+				throw new RuntimeException("更新老师ID失败！" + e.getMessage());
+			}
+		} else
+		{
+			throw new RuntimeException("更新失败，未知异常");
+		}
+		
+	}
+
+	@Override
+	@Transactional
+	public boolean updateTeacherDetails(Teacher teacher) {
+		
+		if (teacher.gettId()!=null)
+		{
+			try
+			{
+				int effectNum = teacherDao.updateTeacherDetails(teacher);
+				if (effectNum > 0)
+				{
+					return true;
+					
+				} else
+				{
+					throw new RuntimeException("更新老师信息失败！");
+				}
+			} catch (Exception e)
+			{
+				throw new RuntimeException("更新老师信息失败！" + e.getMessage());
+			}
+		} else
+		{
+			throw new RuntimeException("更新失败，未知异常");
+		}
+	}
+
 }
