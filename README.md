@@ -12,6 +12,7 @@
   * [版本1.3](#1.3)
   * [版本1.4](#1.4)
   * [版本1.5](#1.5)
+  * [版本1.6](#1.6)
 * [联系方式](#联系方式)
 
 <a name = "项目背景"><a/>
@@ -35,8 +36,8 @@
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/select.png" height = "300"  alt = "推荐导师界面"/> </div> <br/><br/>  
   
   
->>* 获取点赞数前五的老师信息；<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/recommented.png" height = "300"  alt = "主页界面面"/> </div> <br/><br/>
+>>* 查询某个系所有老师的信息<br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/某个系所有老师.png" height = "300"  alt = "某个系所有老师信息界面"/> </div> <br/><br/>
 
 >>* 按照学校院系的方式模糊查询该系的老师，或者某个专业的老师；<br/><br/>
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/teachers.png" height = "300"  alt = "老师界面"/> </div> <br/><br/>
@@ -80,7 +81,12 @@
 >>* （3）更新了使用新的帮助截图（非常好看）；
 >>* （4）前端不再是用advice所提供的接口，这里暂时还有没有删除该接口；
 
-
+<a name = "1.6"><a/>
+### 1.6版本更新如下(2019/5/13本次重要更新)
+>>* 【重要】（1）修复每次打成war包时，总是不包括本地的lib目录中的jar包；
+>>* （2）修复导师认证过程中总是出现（非活体照片），是原因是设置来自数据库中的照片格式必须为活体照片（LIVE），但是数据库中的照片本因为证件照片，修复后已经更改为证件照片类型IDCARD；
+>>* （3）修复导师认证之后只会更改老师数据库中的ID，而不会修改邮件库、评论库、点赞库中的原ID，这导致了之前的评论都无法查看；
+>>* （4）添加了一些新的前端的照片
 
 <a name = "联系方式"><a/>
 ## 联系方式

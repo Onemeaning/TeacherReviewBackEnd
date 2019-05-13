@@ -41,6 +41,7 @@ public class CommentDaoTest {
 	}
 
 	@Test
+	@Ignore
 	public void testDeleteComment() {
 		Comment comment = new Comment();
 		comment.setSourceId("oKnF45PKGIEW1BV3EAw9CBx3FZhc");

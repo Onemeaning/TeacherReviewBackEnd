@@ -2,6 +2,8 @@ package com.meanlam.te.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.meanlam.te.entity.Comment;
 
 public interface CommentDao {
@@ -12,6 +14,10 @@ public interface CommentDao {
 	int insertComment(Comment comment);
 
 	int deleteComment(Comment comment);
+
+	
+	//更新id
+	int updateCommnetId(@Param("newId") String tId, @Param("oldId")String oldteacherId);
 	
 
 }

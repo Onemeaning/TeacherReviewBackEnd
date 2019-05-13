@@ -21,4 +21,11 @@
 		WHERE source_id = #{sourceId} AND u_insertTime = #{uInsertTime}
 	</delete>
 
+		
+	<update id="updateCommnetId">
+		UPDATE user_comment 
+		SET t_id = #{newId,jdbcType=VARCHAR}
+		WHERE t_id = #{oldId,jdbcType=VARCHAR} 
+	</update>
+
 </mapper>  

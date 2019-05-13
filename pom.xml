@@ -12,12 +12,13 @@
 	
 	<groupId>com.nestlab</groupId>
 	<artifactId>wx-te</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>wx-te</name>
 	<description>teacher evaluation</description>
 
 	<!-- 修改打包方式，用于远程部署 -->
-	<!--  <packaging>war</packaging>  -->
+	
+	 <packaging>war</packaging> 
 	
 	<!-- ***************************************************** -->
 
@@ -37,12 +38,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			
 			<!-- 移除嵌入式tomcat插件 -->
-		<!--     <exclusions>
+	    <exclusions>
 		      <exclusion>
 		         <groupId>org.springframework.boot</groupId>
 		         <artifactId>spring-boot-starter-tomcat</artifactId>
 		      </exclusion>
-		    </exclusions>  -->
+		 </exclusions>  
 		  <!-- ***************************************************** -->
 		  
 		  
@@ -50,12 +51,12 @@
 		</dependency>
 		
 	<!-- 配置远程服务器必须的  -->
-	<!--  <dependency>
+	  <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-tomcat</artifactId>
-	    打包的时候可以不用包进去，别的设施会提供。事实上该依赖理论上可以参与编译，测试，运行等周期。相当于compile，但是打包阶段做了exclude操作
+	   <!--  打包的时候可以不用包进去，别的设施会提供。事实上该依赖理论上可以参与编译，测试，运行等周期。相当于compile，但是打包阶段做了exclude操作 -->
 	    <scope>provided</scope>
-	</dependency> -->
+	</dependency> 
 
    <!-- ***************************************************** -->
 				
@@ -158,30 +159,24 @@
 
 <!--将本地的lib/中的所有jar包，在打war包的时候能对应达到WEB/INF/下的lib目录中去-->
 	<build>
-	<!-- 应与application.properties(或application.yml)中context-path保持一致 -->
 	
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					
-					<configuration>
-				        <webResources>
-					          <resource>
-					              <directory>lib</directory>
-					              <targetPath>WEB-INF/lib/</targetPath>
-					              
-					              <includes>
-					                <include>json-lib-2.4-jdk15.jar</include>
-					                <include>gson-2.7.jar</include>
-					                <include>aip-java-sdk-4.3.2.jar</include>
-					                <include>json-20160810.jar</include>
-					              </includes>   
-					           </resource>  
-				         </webResources>
-				    </configuration>
-		         </plugin>      
-			</plugins>
+	<plugins>
+		<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-war-plugin</artifactId>
+			 <configuration>
+					<webResources>
+				     <resource>
+					  <directory>lib</directory>
+					  <targetPath>WEB-INF/lib/</targetPath>
+					  <includes>
+						 <include>**/*.jar</include>
+					   </includes>
+					 </resource>
+					</webResources>
+		        </configuration>
+		</plugin>
+	</plugins>
 			
 	</build>
 

@@ -89,6 +89,10 @@ public class TeacherConrtoller {
 		
 		Teacher teacher = teacherService.getTeacherPhoto(tAffiliation, tName);
 		
+		/*数据库存储的旧的老师ID，这个ID绑定了老师没有授权登陆之前的所有的信息，如学生发来的邮件，点赞，评论；
+		 * 因此如果老师认证成功了，我们需要将评论库，点赞库，邮件库，老师的ID进行重新绑定;
+		*/		
+		
 		//获取数据中照片的URL地址;
 		String photoFromDb = "";
 		if (teacher == null)
@@ -96,6 +100,7 @@ public class TeacherConrtoller {
 			 modelMap.put("success", "系统未找到您的信息？请联系管理员添加！");
 			 return modelMap;
 		}
+		String oldteacherId = teacher.gettId();
 		photoFromDb= CommonUtils.downloadPicture(teacher.gettPhoto());
 		
 		//处理图片文件(本地文件)
@@ -114,8 +119,7 @@ public class TeacherConrtoller {
 		}
 		else if(judgeResult.get(FaceMatch.COMPARE_SUCCESS)!=null) 
 		{
-			
-			
+					
 			//照片比对成功，认为是同一个人，更新数据库中的ID信息，让他与微信绑定
 			Teacher t1 = new Teacher();
 			t1.settName(tName);
@@ -123,12 +127,13 @@ public class TeacherConrtoller {
 			t1.settId(tId);							
 			boolean updateResult = teacherService.updateTeacherInfo(t1);//更新数据库的结果，正常不应该出错的；					
 			if (!updateResult)
-			{
+			{   
 				modelMap.put("success", judgeResult.get(FaceMatch.COMPARE_SUCCESS)+"但是数据库更新失败！");
 				modelMap.put("success", "fail");
 			}
 			else 
 			{	
+				teacherService.updateAllDatabaseTeacherId(tId,oldteacherId);
 				modelMap.put("success", "success");
 			}
 			

@@ -56,5 +56,12 @@ public interface TeacherService {
 	 * @return
 	 */
 	public boolean updateTeacherDetails(Teacher teacher);
+	
+	/**
+	 * 更新所有数据中老师的旧ID为新的老师微信的OPEN ID；
+	 * @param teacher
+	 * @return
+	 */
+	public boolean updateAllDatabaseTeacherId(String tId, String oldteacherId);
 		
 }

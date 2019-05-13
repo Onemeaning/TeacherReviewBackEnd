@@ -47,6 +47,14 @@
 		SET checked = 1
 		WHERE fromId = #{fromId} AND toId = #{toId} AND sendTime = #{sendTime}
 	</update>
+
+	
+	<update id="updateEmailsId">
+		UPDATE emails_content 
+		SET toId = #{newId,jdbcType=VARCHAR}
+		WHERE toId = #{oldId,jdbcType=VARCHAR} 
+	</update>
+	
 	
 	
 </mapper>  

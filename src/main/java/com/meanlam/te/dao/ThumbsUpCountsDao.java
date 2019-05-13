@@ -1,5 +1,8 @@
 package com.meanlam.te.dao;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.meanlam.te.entity.ThumbsCountsResult;
 import com.meanlam.te.entity.ThumbsUpCounts;
 
@@ -71,8 +74,9 @@ public interface ThumbsUpCountsDao {
 	 * 
 	 */
 	int deleteCommentRelativeSupports(String commentId);
+
 	
-	
+	int updateThumbsId(@Param("newId") String tId, @Param("oldId")String oldteacherId);
 	
 	
 }

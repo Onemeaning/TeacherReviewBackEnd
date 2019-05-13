@@ -63,5 +63,11 @@
 			WHERE comment_id=#{commentId}
 	</delete>
 	
+	<update id="updateThumbsId">
+		UPDATE tb_thumbsup 
+		SET dest_id = #{newId,jdbcType=VARCHAR}
+		WHERE dest_id = #{oldId,jdbcType=VARCHAR} 
+	</update>
+	
 	</mapper>  
 	

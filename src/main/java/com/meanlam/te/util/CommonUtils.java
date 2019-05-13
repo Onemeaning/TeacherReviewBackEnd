@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class CommonUtils {
 	
-public static String MYURL = "http://49.123.68.14:8080/";
-
+public static String MYURL = "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT/";
+//public static String MYURL = "http://49.123.68.14:8080/";
 //处理微信小程序拍照发过来的照片	
 public static String deposePicFromWx(MultipartFile[] files) throws Exception {
 	String uploadFileName = null;

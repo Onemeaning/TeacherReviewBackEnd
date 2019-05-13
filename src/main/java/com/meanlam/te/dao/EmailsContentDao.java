@@ -4,6 +4,8 @@ package com.meanlam.te.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.meanlam.te.entity.EmailsContent;
 
 public interface EmailsContentDao {
@@ -13,4 +15,7 @@ public interface EmailsContentDao {
 	public int insertData(EmailsContent emailsContent);
 	public int deleteById(EmailsContent emailsContent);
 	public int deleteAll(String toId);
+	
+	//更具就的ID更换为新的老师新的老师ID
+	public int updateEmailsId(@Param("newId") String tId, @Param("oldId")String oldteacherId);
 }
