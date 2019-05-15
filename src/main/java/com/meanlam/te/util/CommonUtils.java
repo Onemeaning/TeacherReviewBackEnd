@@ -19,8 +19,9 @@ public class CommonUtils {
 	
 public static String MYURL = "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT/";
 //public static String MYURL = "http://49.123.68.14:8080/";
+
 //处理微信小程序拍照发过来的照片	
-public static String deposePicFromWx(MultipartFile[] files) throws Exception {
+public static String deposePicFromWx(MultipartFile[] files,String tempPath) throws Exception {
 	String uploadFileName = null;
     if(files != null && files.length > 0) {      	
     	for (MultipartFile multipartFile : files)
@@ -38,7 +39,7 @@ public static String deposePicFromWx(MultipartFile[] files) throws Exception {
                 File path = new File(URLDecoder.decode(urlPath, "UTF-8"));   
              		  
                  //如果上传目录为/static/images，则可以如下获取：                 
-                 File upload = new File(path.getAbsolutePath(),"static/cetifyTemp/");
+                 File upload = new File(path.getAbsolutePath(),"static/"+tempPath+"/");
                  if(!upload.exists())                   	 
                 	 upload.mkdirs();                                                                     
                  String trueFileName =fileName.substring(fileName.length()-36);         
@@ -69,7 +70,7 @@ public static String deposePicFromWx(MultipartFile[] files) throws Exception {
 
 
 //链接url下载图片
-public static String downloadPicture(String urlList) {
+public static String downloadPicture(String urlList,String tempPath) {
     URL url = null;
     String path = null;
     try {
@@ -79,7 +80,7 @@ public static String downloadPicture(String urlList) {
         File contextPath = new File(URLDecoder.decode(urlPath, "UTF-8"));   
      		  
          //如果上传目录为/static/adviceImages，则可以如下获取：                 
-         File upload = new File(contextPath.getAbsolutePath(),"static/cetifyTemp/");
+         File upload = new File(contextPath.getAbsolutePath(),"static/"+tempPath+"/");
          if(!upload.exists())                   	 
         	 upload.mkdirs();                                     
                           
@@ -111,7 +112,7 @@ public static String downloadPicture(String urlList) {
     return path;
 }
 
-public static String writeBytesToFile(byte[] bs) {
+public static String writeBytesToFile(byte[] bs,String tempFilePath) {
 	
 	String path = null;
 	String trueFileName = null;
@@ -122,7 +123,7 @@ public static String writeBytesToFile(byte[] bs) {
 	File contextPath = new File(URLDecoder.decode(urlPath, "UTF-8"));   
 		  
 	 //如果上传目录为/static/adviceImages，则可以如下获取：                 
-	 File upload = new File(contextPath.getAbsolutePath(),"static/tempImages/");
+	 File upload = new File(contextPath.getAbsolutePath(),"static/"+tempFilePath+"/");
 	 if(!upload.exists())                   	 
 		 upload.mkdirs();                                     
 	                  
@@ -150,6 +151,9 @@ public static String writeBytesToFile(byte[] bs) {
 	}
 	return trueFileName;
 }
+
+
+
 
 
 /** 

@@ -67,6 +67,8 @@ public class TeacherConrtoller {
 		return modelMap;
 	}
 	
+	
+	
 	/**
 	 * 教师身份认证，根据老师调用的自拍照片以及数据库中存储的老师的照片进行比对
 	 * @param request
@@ -101,10 +103,10 @@ public class TeacherConrtoller {
 			 return modelMap;
 		}
 		String oldteacherId = teacher.gettId();
-		photoFromDb= CommonUtils.downloadPicture(teacher.gettPhoto());
+		photoFromDb= CommonUtils.downloadPicture(teacher.gettPhoto(),tId);
 		
 		//处理图片文件(本地文件)
-		String wxUploadPhotoPath = CommonUtils.deposePicFromWx(files);
+		String wxUploadPhotoPath = CommonUtils.deposePicFromWx(files,tId);
 			
 		Map<String,String> judgeResult = FaceMatch.comparePhoto(photoFromDb,wxUploadPhotoPath);
 		if (judgeResult.get(FaceMatch.NOT_LIFE)!=null)

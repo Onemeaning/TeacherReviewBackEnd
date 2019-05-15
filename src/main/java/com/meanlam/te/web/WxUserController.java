@@ -95,16 +95,16 @@ public class WxUserController {
 	}
 
 	
+	
+
 	/**
-	    * @Title: decodeUserInfo
+	   * @Title: decodeUserInfo
 	    * @Description: 解密用户敏感数据
 	    * @param encryptedData 明文,加密数据
 	     * @param iv   加密算法的初始向量
 	     * @param code  用户允许登录后，回调内容会带上 code（有效期五分钟），开发者需要将 code 发送到开发者服务器后台，使用code 换取 session_key api，将 code 换成 openid 和 session_key
 	     * @return
 	 */
-	
-
 	@RequestMapping(value = "/decodeUserInfo",method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String,Object> decodeUserInfo(String encryptedData, String iv, String code)
@@ -140,8 +140,7 @@ public class WxUserController {
 		
 		// 用户的唯一标识（openid）
 //		String openid = (String) json.get("openid");
-		
-		
+			
 /*	  2、对encryptedData加密数据进行AES解密 */
 		try {
 			String result = AesCbcUtil.decrypt(encryptedData, session_key, iv, "UTF-8");
@@ -172,5 +171,7 @@ public class WxUserController {
 		}
 		return map;
 	}
+	
+	
 	
 }	  

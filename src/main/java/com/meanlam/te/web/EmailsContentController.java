@@ -49,7 +49,7 @@ public class EmailsContentController {
 			byte[] bys = emailsContent.getFile();
 			if (bys!=null)
 			{
-				emailsContent.setResumeUrl(CommonUtils.MYURL+"tempImages/"+CommonUtils.writeBytesToFile(bys));		
+				emailsContent.setResumeUrl(CommonUtils.MYURL+toId+"/"+CommonUtils.writeBytesToFile(bys,toId));		
 			}				
 		}
 		modelMap.put("success", emailsList);//这个键（success）会在客户端直接获取
@@ -61,7 +61,7 @@ public class EmailsContentController {
 	 * 根据前台传来的临时的图片的URL地址删除文件
 	 */
 	@RequestMapping(value = "/deletetempPic", method = RequestMethod.GET)
-	private Map<String, Object> deletetempPic(String resumeUrl)
+	private Map<String, Object> deletetempPic(String tempPath)
 	{
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		boolean result = false;
@@ -70,7 +70,8 @@ public class EmailsContentController {
 		//获取跟目录             	
 		String urlPath = ResourceUtils.getURL("classpath:").getPath();              	
 		File contextPath = new File(URLDecoder.decode(urlPath, "UTF-8"));  
-		String tempFilePath = contextPath+"\\static\\"+resumeUrl+"\\";
+		String tempFilePath = contextPath+"\\static\\"+tempPath+"\\";
+		System.out.println();
 		result = CommonUtils.deleteFolder(tempFilePath);		
 		} catch (Exception e)
 		{

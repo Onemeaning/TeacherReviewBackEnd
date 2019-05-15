@@ -15,10 +15,10 @@
 	private String tDetailLink; -->
 	
 	<select id="findByAffiliation" parameterType="string" resultType="com.meanlam.te.entity.Teacher">
-			SELECT t_id,t_name,t_affiliation,t_email,t_introduction,t_researchInterest,t_photo,t_thumpUpCounts,t_detailLink,
-			t_publishedPaper,t_projects
+			SELECT *
 			FROM teacher_info
 			WHERE t_affiliation LIKE #{tAffiliation}
+			ORDER BY t_thumpUpCounts DESC 
 	</select>
 	
 	<select id="findTopFive"  resultType="com.meanlam.te.entity.Teacher">
