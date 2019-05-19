@@ -38,14 +38,14 @@
 >>* 用户可以借助`微信小程序`授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；点击 主界面->授权登陆,即可进入程序<br/>
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/两个方式授权登陆界面.png" height = "300"  alt = "授权界面"/> </div> <br/><br/>
 
->>*您可以选择学生身份或者导师身份登录,如果选择导师的身份.我们需要对您进行人脸识别来认证您的真实身份;
+>>* 您可以选择学生身份或者导师身份登录,如果选择导师的身份.我们需要对您进行人脸识别来认证您的真实身份;
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师身份认证页面.png" height = "300"  alt = "导师认证界面"/> </div> <br/><br/>
 
->>*在导师认证的过程中,您可能会得到如下结果;1、非活体信息（这是因为您没有使用自己自拍照）；2、匹配得分少于八十（并非您本人）；3、系统暂时没有添加该导师（这是因为您的个人信息还没加入到数据库中，此时可以联系管理员解决）；4、false（这是因为您的数据库中照片不存在或者非证件照类型,此时可以联系管理员解决）；否则就认证成功了；
+>>* 在导师认证的过程中,您可能会得到如下结果;1、非活体信息（这是因为您没有使用自己自拍照）；2、匹配得分少于八十（并非您本人）；3、系统暂时没有添加该导师（这是因为您的个人信息还没加入到数据库中，此时可以联系管理员解决）；4、false（这是因为您的数据库中照片不存在或者非证件照类型,此时可以联系管理员解决）；否则就认证成功了；
 
-<center class="half">
-    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png" height = "300"  alt = "非活体照片"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png" height = "300"  alt = "照片相似度低"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png" height = "300"  alt = "系统暂时没有添加老师返回结果"/>
-</center>
+<figure  class="third">
+    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png" width="300"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png" width="300"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png" width="300"/>
+</figure >
 
 >>* 认证身份之后就会进入到主界面中，
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/主页面.png" height = "300"  alt = "主页面"/> </div> <br/><br/>
@@ -55,12 +55,12 @@
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/select.png" height = "300"  alt = "推荐导师界面"/> </div> <br/><br/>  
   
   
->>*查询某个系所有老师的信息；<br/><br/>
+>>* 查询某个系所有老师的信息；<br/><br/>
 <div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/某个系所有老师.png" height = "300"  alt = "某个系所有老师信息界面"/> </div> <br/><br/>
 
 >>* 当然您也可以在“热门导师推荐页面”的搜索栏中按照学校院系的方式模糊查询该系的老师，或者某个专业的老师的简要信息；当然您也可以点击右上方的《学校》按钮来快速选择您想了解的学校老师信息；<br/><br/>
 <center class="half">
-    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/热门导师推荐首页.png" height = "300"  alt = "热门导师推荐首页"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/推荐导师页面.png" height = "300"  alt = "推荐导师页面"/>
+    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/热门导师推荐首页.png" height = "300"  alt = "热门导师推荐首页"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/推荐导师界面.png" height = "300"  alt = "推荐导师界面"/>
 </center>
 
 #### 第二步 点击进入导师专业详细信息界面,在这个页面可以查看导师的详细资料，点击下方的点赞按钮，您可以给心仪的老师助力，让他被更多的学生发现，您也可以点击下方评论按钮，给您喜欢的老师点评一下！<br/><br/>
