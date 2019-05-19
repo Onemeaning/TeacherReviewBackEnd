@@ -43,9 +43,8 @@
 
 >>* 在导师认证的过程中,您可能会得到如下结果;1、非活体信息（这是因为您没有使用自己自拍照）；2、匹配得分少于八十（并非您本人）；3、系统暂时没有添加该导师（这是因为您的个人信息还没加入到数据库中，此时可以联系管理员解决）；4、false（这是因为您的数据库中照片不存在或者非证件照类型,此时可以联系管理员解决）；否则就认证成功了；
 
-<figure class="third">
-   ![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png)![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png)![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png)
-</figure>
+![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png)![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png)![](https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png)
+
 
 >>* 认证身份之后就会进入到主界面中，
 <div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/主页面.png" height = "300"  alt = "主页面"/> </div> <br/><br/>
