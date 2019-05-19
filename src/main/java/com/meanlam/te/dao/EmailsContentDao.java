@@ -18,4 +18,7 @@ public interface EmailsContentDao {
 	
 	//更具就的ID更换为新的老师新的老师ID
 	public int updateEmailsId(@Param("newId") String tId, @Param("oldId")String oldteacherId);
+	
+	//根据源目ID查询历史聊天记录
+	public List<EmailsContent> findHistoryRecord(@Param("fromId") String fromId, @Param("toId")String toId);
 }

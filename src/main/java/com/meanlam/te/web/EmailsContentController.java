@@ -8,10 +8,7 @@ import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.meanlam.te.entity.EmailsContent;
-import com.meanlam.te.entity.UserAdvice;
 import com.meanlam.te.service.EmailsContentService;
 import com.meanlam.te.util.CommonUtils;
 
@@ -49,12 +45,45 @@ public class EmailsContentController {
 			byte[] bys = emailsContent.getFile();
 			if (bys!=null)
 			{
-				emailsContent.setResumeUrl(CommonUtils.MYURL+toId+"/"+CommonUtils.writeBytesToFile(bys,toId));		
+				emailsContent.setResumeUrl(CommonUtils.MYURL+toId+"/"+CommonUtils.writeBytesToFile(bys,toId));	
+				emailsContent.setFile(null);
 			}				
 		}
 		modelMap.put("success", emailsList);//这个键（success）会在客户端直接获取
 		return modelMap;
 	}
+	
+	
+	/*
+	 * 根据源目ID查找这两个人之间的聊天记录
+	 */
+	@RequestMapping(value = "/getAllHistoryEmails", method = RequestMethod.GET)
+	private Map<String, Object> getAllHistoryEmails(String fromId,String toId,String sendTime)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		List<EmailsContent> historyEmailsList = emailsContentService.getAllHistoryEmails(fromId,toId);
+		for (int i = 0;i<historyEmailsList.size();i++)
+		{
+			if (historyEmailsList.get(i).getSendTime().equals(sendTime))
+			{
+				historyEmailsList.remove(i);
+			}
+			
+			else 
+			{		
+				byte[] bys = historyEmailsList.get(i).getFile();
+				if (bys!=null)
+				{
+					historyEmailsList.get(i).setResumeUrl(CommonUtils.MYURL+toId+"/"+CommonUtils.writeBytesToFile(bys,toId));	
+					historyEmailsList.get(i).setFile(null);
+				}	
+			}
+					
+		}
+		modelMap.put("success", historyEmailsList);//这个键（success）会在客户端直接获取
+		return modelMap;
+	}
+	
 	
 	
 	/*
@@ -140,7 +169,6 @@ public class EmailsContentController {
 	{
 		Map<String, Object> modelMap = new HashMap<String, Object>();		
 		modelMap.put("success", emailsContentService.writeEmail(emailsContent));
-		System.out.println(modelMap.get("success"));
 		return modelMap;
 	}
 

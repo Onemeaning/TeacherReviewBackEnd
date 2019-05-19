@@ -19,15 +19,23 @@
 		ORDER BY sendTime
 		DESC	
 	 </select>
+
+	 
+	 <select id="findHistoryRecord" resultType="com.meanlam.te.entity.EmailsContent">
+		SELECT *
+		FROM emails_content
+		WHERE (toId = #{toId,jdbcType=VARCHAR} AND fromId = #{fromId,jdbcType=VARCHAR}) OR (toId = #{fromId,jdbcType=VARCHAR} AND fromId = #{toId,jdbcType=VARCHAR})
+		ORDER BY sendTime
+		DESC	
+	 </select>
 	 
 	 
-		
+	 	
 	<insert id="insertData" parameterType="com.meanlam.te.entity.EmailsContent">
 		INSERT INTO 
 			emails_content(fromId,fromIdImage,fromIdNickName,toId,sendTime,emailContent,file,checked)
 		VALUES (#{fromId},#{fromIdImage},#{fromIdNickName},#{toId},#{sendTime},#{emailContent},#{file},#{checked})
 	</insert>
-	
 	
 	
 	

@@ -45,6 +45,15 @@ public interface EmailsContentService {
 	 * @return
 	 */
 	public int uncheckedEmailsNum(String toId);
+
+	
+	/**
+	 *     获取两个人之间的历史聊天记录
+	 * @param fromId
+	 * @param toId
+	 * @return
+	 */
+	public List<EmailsContent> getAllHistoryEmails(String fromId, String toId);
 	
 	
 }

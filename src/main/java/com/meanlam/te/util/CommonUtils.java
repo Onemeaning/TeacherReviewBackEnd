@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.UUID;
 
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -84,7 +85,7 @@ public static String downloadPicture(String urlList,String tempPath) {
          if(!upload.exists())                   	 
         	 upload.mkdirs();                                     
                           
-         String trueFileName =System.currentTimeMillis()+".jpg";   
+         String trueFileName =uuid()+".jpg";   
          //得到文件名字
          path = upload.getAbsolutePath()+"/"+trueFileName; // 自定义的文件名称
          
@@ -127,7 +128,7 @@ public static String writeBytesToFile(byte[] bs,String tempFilePath) {
 	 if(!upload.exists())                   	 
 		 upload.mkdirs();                                     
 	                  
-	 trueFileName =System.currentTimeMillis()+".jpg";   
+	 trueFileName =uuid()+".jpg";   
 	 
 	 //得到文件名字
 	 path = upload.getAbsolutePath()+"/"+trueFileName; // 自定义的文件名称
@@ -230,5 +231,8 @@ public static boolean deleteFolder(String sPath) {
         }  
     }  
 }
-
+public static String uuid()
+{
+	return UUID.randomUUID().toString().replaceAll("-", "");
+}
 }

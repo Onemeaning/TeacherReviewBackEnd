@@ -191,4 +191,11 @@ public class EmailsContentServiceImp implements EmailsContentService {
 		return num;
 	}
 
+	@Override
+	public List<EmailsContent> getAllHistoryEmails(String fromId, String toId) {
+		List<EmailsContent> emailsList = new ArrayList<EmailsContent>();		
+		emailsList =  emailsContentDao.findHistoryRecord(fromId,toId);
+		return emailsList;
+	}
+
 }
