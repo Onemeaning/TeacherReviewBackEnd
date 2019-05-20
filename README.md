@@ -1,10 +1,13 @@
 # TeacherReview-back-end
 >>>>>>>>>>>>>>>># 师生互选助手
-<div align=justify>
-  <text>这是后端项目源码，项目基于SpringBoot+MyBatis框架快速搭建，目前只支持部分功能。</text> 
-  <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/logo.png" height = "90"  alt = "授权界面"/> 
-</div><br/>
->>>>> 前端项目地址：https://github.com/Onemeaning/WeChatProject
+>>>>>这是后端项目源码，项目基于SpringBoot+MyBatis框架快速搭建，目前只支持部分功能。
+
+<div align=right>
+     <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/logo.png" height = "90"  alt = "授权界面"/> 
+</div>
+
+>>>>>前端项目地址：https://github.com/Onemeaning/WeChatProject
+
 ## 目录
 * [项目背景](#项目背景)
 * [开发环境](#开发环境)
