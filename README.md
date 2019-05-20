@@ -23,10 +23,6 @@
   * [版本1.6](#1.6)
 * [联系方式](#联系方式)
 
-<a name = "DEMO演示"><a/>
-## DEMO演示
-<div align=center> <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo.gif height = "400" alt = "演示demo"/> </div> 
- 
 <a name = "项目背景"><a/>
 ## 项目背景
 　　还记得2017年9月份，那时候正好拿到学校的推免资格，这时候将面临一个问题————`选导师`,对于理想院校却因没有任何熟悉的同学可以咨询，只能靠自己在网上搜索，但是大部分结果都是对于这个学校的这个专业的评价，极少有对老师有点评的，因此你很难做出判断这个老师是科研能力强，还是项目能力好，是负责任型、还是放羊型、是高要求高期望、还是任凭你放荡、是毕业要求高、还是可以混等等……，你根本得不出结论，当我绝望的时候，我觉得自己有必要开发出一款《师生互选助手》非常有必要，让有经验的人为自己系的导师打call，通过评价、点赞等方式、让好的导师让更多的人知道；在这里你还可以跟老师联系，如果您是老师，你可以在这里发布招生需求，这样同学老师之间互相选择，相互受益；这也就是我写这个系统的初衷。<br/>
@@ -36,7 +32,11 @@
   
 <a name = "项目结构"><a/>
 ## 项目结构
-  
+
+<a name = "DEMO演示"><a/>
+## DEMO演示
+<div align=center> <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo.gif height = "400" alt = "演示demo"/> </div> 
+
 <a name = "功能介绍"><a/>
 ## 功能介绍
 
