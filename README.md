@@ -35,7 +35,11 @@
 
 <a name = "DEMO演示"><a/>
 ## DEMO演示
-<div align=center> <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo.gif height = "400" alt = "演示demo"/> </div> 
+<div align=center>
+ <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p1.gif height = "400" alt = "演示demo1"/>
+ <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p2.gif height = "400" alt = "演示demo2"/>
+ <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p3.gif height = "400" alt = "演示demo3"/>
+</div> 
 
 <a name = "功能介绍"><a/>
 ## 功能介绍
