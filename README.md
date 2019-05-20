@@ -1,10 +1,10 @@
 # TeacherReview-back-end
 >>>>>>>>>>>>>>>># 师生互选助手
-<div align=justify><text>这是后端项目源码，项目基于SpringBoot+MyBatis框架快速搭建，目前只支持部分功能。</text> 
- <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/logo.png" height = "90"  alt = "授权界面"/> 
-<text>前端项目地址：https://github.com/Onemeaning/WeChatProject</text>
-</div>
->>>>>前端项目地址：https://github.com/Onemeaning/WeChatProject
+<div align=justify>
+  <text>这是后端项目源码，项目基于SpringBoot+MyBatis框架快速搭建，目前只支持部分功能。</text> 
+  <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/logo.png" height = "90"  alt = "授权界面"/> 
+</div><br/>
+>>>>> 前端项目地址：https://github.com/Onemeaning/WeChatProject
 ## 目录
 * [项目背景](#项目背景)
 * [开发环境](#开发环境)
@@ -22,7 +22,7 @@
 
 <a name = "DEMO演示"><a/>
 ## DEMO演示
-<div align=center> <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo.gif height = "300" alt = "演示demo"/> </div> 
+<div align=center> <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo.gif height = "400" alt = "演示demo"/> </div> 
  
 <a name = "项目背景"><a/>
 ## 项目背景
@@ -39,56 +39,57 @@
 
 #### 授权登陆
 >>* 用户可以借助`微信小程序`授权，同时以微信小程序的openID作为用户的唯一标识以及其他useInfo添加至数据库作为一条用户信息；点击 主界面->授权登陆,即可进入程序<br/>
-<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/两个方式授权登陆界面.png" height = "300"  alt = "授权界面"/> </div> <br/><br/>
+<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/两个方式授权登陆界面.png" height = "400"  alt = "授权界面"/> </div> <br/><br/>
 
 >>* 您可以选择学生身份或者导师身份登录,如果选择导师的身份.我们需要对您进行人脸识别来认证您的真实身份;
-<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师身份认证页面.png" height = "300"  alt = "导师认证界面"/> </div> <br/><br/>
+<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师身份认证页面.png" height = "400"  alt = "导师认证界面"/> </div> <br/><br/>
 
 >>* 在导师认证的过程中,您可能会得到如下结果;1、非活体信息（这是因为您没有使用自己自拍照）；2、匹配得分少于八十（并非您本人）；3、系统暂时没有添加该导师（这是因为您的个人信息还没加入到数据库中，此时可以联系管理员解决）；4、false（这是因为您的数据库中照片不存在或者非证件照类型,此时可以联系管理员解决）；否则就认证成功了；
 <div align=center>
- <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png" height = "300"  alt = "非活体照片"/> 
- <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png" height = "300"  alt = "照片相似度低"/> 
-  <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png" height = "300"  alt = "系统暂时没有添加老师返回结果"/> 
+ <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/非活体照片.png" height = "400"  alt = "非活体照片"/> 
+ <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/照片相似度低.png" height = "400"  alt = "照片相似度低"/> 
+  <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/系统暂时没有添加老师返回结果.png" height = "400"  alt = "系统暂时没有添加老师返回结果"/> 
 </div>
 
 >>* 认证身份之后就会进入到主界面中，
-<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/主页面.png" height = "300"  alt = "主页面"/> </div> <br/><br/>
+<div align=center> <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/主页面.png" height = "400"  alt = "主页面"/> </div> <br/><br/>
 
  
 #### 第一步 进入院校选择界面;在主界面中，您可以点击‘搜索导师信息’按钮去寻找您想了解某个系的老师信息
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/select.png" height = "300"  alt = "推荐导师界面"/> </div> <br/><br/>  
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/select.png" height = "400"  alt = "推荐导师界面"/> </div> <br/><br/>  
   
   
 >>* 查询某个系所有老师的信息；<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/某个系所有老师.png" height = "300"  alt = "某个系所有老师信息界面"/> </div>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/某个系所有老师.png" height = "400"  alt = "某个系所有老师信息界面"/> </div>
 
 >>* 当然您也可以在“热门导师推荐页面”的搜索栏中按照学校院系的方式模糊查询该系的老师，或者某个专业的老师的简要信息；当然您也可以点击右上方的《学校》按钮来快速选择您想了解的学校老师信息；<br/><br/>
 <div align=center>
- <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/热门导师推荐首页.png" height = "300"  alt = "热门导师推荐首页"/>
- <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/推荐导师界面.png" height = "300"  alt = "推荐导师界面"/>
+ <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/热门导师推荐首页.png" height = "400"  alt = "热门导师推荐首页"/>
+ <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/推荐导师界面.png" height = "400"  alt = "推荐导师界面"/>
 </div>
 
 #### 第二步 点击进入导师专业详细信息界面,在这个页面可以查看导师的详细资料，点击下方的点赞按钮，您可以给心仪的老师助力，让他被更多的学生发现，您也可以点击下方评论按钮，给您喜欢的老师点评一下！<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师详细信息界面.png" height = "300"  alt = "老师详细信息界面"/> </div> 
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师详细信息界面.png" height = "400"  alt = "老师详细信息界面"/> </div> 
 
 #### 第三步 查看导师详细资料和学生评;用户可以对某个老师进行点评、也可以删除自己的评论（删除品论根据用户的ID+评论时间位移识别）；<br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/评论界面.png" height = "300"  alt = "评论界面"/> </div> <br/><br/>
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/评论界面.png" height = "400"  alt = "评论界面"/> </div> <br/><br/>
 
 #### 第四步 给心仪的老师发私信,在这个页面你可以给老师发私信，您可以详细的介绍自己，让导师可以更好的了解你，当然你也可以添加照片形式的简历，让老师全面的了解你，这也会增加你被老师选中的机会，祝你好运！<br/><br/>
-<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/发送私信界面.png" height = "300"  alt = "发送私信界面"/> </div> 
+<div align=center><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/发送私信界面.png" height = "400"  alt = "发送私信界面"/> </div> 
+
 #### 第五步 进入我的界面，查看个人信息，收到私信情况；在这里会根据不同的授权登陆身份显示不同的界面<br/><br/>
 <div align=center>
-    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/学生用户看到的我的界面.png" height = "300"  alt = "学生用户看到的我的界面"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师看到的自己信息页面.png" height = "300"  alt = "导师看到的自己信息页面"/>
+    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/学生用户看到的我的界面.png" height = "400"  alt = "学生用户看到的我的界面"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师看到的自己信息页面.png" height = "400"  alt = "导师看到的自己信息页面"/>
 </div> 
 
 >>* 修改个人资料界面；导师和学生会赋予不一样的修改权限；
 <div align=center>
-    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/学生用户看到的我的界面.png" height = "300"  alt = "普通用户修改信息页面.png"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师身份修改个人信息界面.png" height = "300"  alt = "导师身份修改个人信息界面"/>
+    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/学生用户看到的我的界面.png" height = "400"  alt = "普通用户修改信息页面.png"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/导师身份修改个人信息界面.png" height = "400"  alt = "导师身份修改个人信息界面"/>
 </div> 
 
 #### 第六步 查看老师回复的私信,在这里，您可以看到老师给您的回复，同样您也可以继续回复他，愉快的交流可以让导师最终选择您的几率增大。
 <div align=center>
-    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/收到所有私信总览.png" height = "300"  alt = "收到所有私信总览"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/查看私信具体信息页面.png" height = "300"  alt = "查看私信具体信息页面"/>
+    <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/收到所有私信总览.png" height = "400"  alt = "收到所有私信总览"/><img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/查看私信具体信息页面.png" height = "400"  alt = "查看私信具体信息页面"/>
 </div> 
 
 <a name = "版本介绍"><a/>
