@@ -45,7 +45,7 @@
  <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p3.gif height = "400" alt = "演示demo3"/>
 </div> 
      
-   #### 4.2 [演示视频](https://www.bilibili.com/video/av53625788)
+   #### 4.2 [演示视频](https://www.bilibili.com/video/av54031932)
 
 <a name = "功能介绍"><a/>
 ## 五、功能介绍
