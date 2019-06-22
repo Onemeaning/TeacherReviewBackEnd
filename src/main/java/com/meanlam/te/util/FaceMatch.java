@@ -90,7 +90,7 @@ public static final String NOT_LIFE = "1";//不是活体照片
             Map<String, Object> map1 = new HashMap<>();
             map1.put("image", image1);
             map1.put("image_type", "BASE64");
-            map1.put("face_type", "IDCARD");
+            map1.put("face_type", "CERT");//CERT表示证件照片：如拍摄的身份证、工卡、护照、学生证等证件图片
             map1.put("quality_control", "LOW");
             map1.put("liveness_control", "NONE");
  

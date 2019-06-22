@@ -1,5 +1,6 @@
 package com.meanlam.te.entity;
 
+import java.util.List;
 public class Teacher {
 	
 	private String tId;
@@ -13,7 +14,28 @@ public class Teacher {
 	private String tPhoto;
 	private int tThumpUpCounts;//这个字段是需要名字的，现在不改名字了，将它代表为界面的访问数目
 	private String tDetailLink;
+	private List<String> projects;
+	private List<String> papers;
+	private List<String> years;
 	
+	public List<String> getProjects() {
+		return projects;
+	}
+	public List<String> getYears() {
+		return years;
+	}
+	public void setYears(List<String> years) {
+		this.years = years;
+	}
+	public void setProjects(List<String> projects) {
+		this.projects = projects;
+	}
+	public List<String> getPapers() {
+		return papers;
+	}
+	public void setPapers(List<String> papers) {
+		this.papers = papers;
+	}
 	public String gettId() {
 		return tId;
 	}
@@ -83,9 +105,12 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [tId=" + tId + ", tName=" + tName + ", tAffiliation=" + tAffiliation + ", tEmail=" + tEmail
-				+ ", tIntroduction=" + tIntroduction + ", tResearchInterest=" + tResearchInterest
-				+ ", tPublishedPaper=" + tPublishedPaper + ", tProjects=" + tProjects + ", tPhoto=" + tPhoto
-				+ ", tThumpUpCounts=" + tThumpUpCounts + ", tDetailLink=" + tDetailLink + "]";
+				+ ", tIntroduction=" + tIntroduction + ", tResearchInterest=" + tResearchInterest + ", tPublishedPaper="
+				+ tPublishedPaper + ", tProjects=" + tProjects + ", tPhoto=" + tPhoto + ", tThumpUpCounts="
+				+ tThumpUpCounts + ", tDetailLink=" + tDetailLink + ", projects=" + projects + ", papers=" + papers
+				+ "]";
 	}
+
+	
 	
 }

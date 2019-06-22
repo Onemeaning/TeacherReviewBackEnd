@@ -100,7 +100,6 @@ public class EmailsContentController {
 		String urlPath = ResourceUtils.getURL("classpath:").getPath();              	
 		File contextPath = new File(URLDecoder.decode(urlPath, "UTF-8"));  
 		String tempFilePath = contextPath+"\\static\\"+tempPath+"\\";
-		System.out.println();
 		result = CommonUtils.deleteFolder(tempFilePath);		
 		} catch (Exception e)
 		{

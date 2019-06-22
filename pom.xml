@@ -12,7 +12,7 @@
 	
 	<groupId>com.nestlab</groupId>
 	<artifactId>wx-te</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 	<name>wx-te</name>
 	<description>teacher evaluation</description>
 
@@ -153,7 +153,12 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/json-20160810.jar</systemPath>
      </dependency>  
-	   
+     
+	  <dependency>
+	    <groupId>com.baidu.aip</groupId>
+	    <artifactId>java-sdk</artifactId>
+	    <version>4.9.0</version>
+	</dependency>
 	      	
 	</dependencies>
 

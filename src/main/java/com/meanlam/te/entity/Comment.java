@@ -7,7 +7,16 @@ public class Comment {
 	private String uNickName;
 	private String uInsertTime;
 	private String tId;
+	private int uType; //评论的情感分析,0负面、1中肯、2正面
 	
+	
+	public int getuType() {
+		return uType;
+	}
+	public void setuType(int uType) {
+		this.uType = uType;
+	}
+
 	public String gettId() {
 		return tId;
 	}
@@ -44,11 +53,7 @@ public class Comment {
 	public void setuInsertTime(String uInsertTime) {
 		this.uInsertTime = uInsertTime;
 	}
-	@Override
-	public String toString() {
-		return "Comment [sourceId=" + sourceId + ", uPhoto=" + uPhoto + ", uComments=" + uComments + ", uNickName="
-				+ uNickName + ", uInsertTime=" + uInsertTime + ", tId=" + tId + "]";
-	}
+
 	
 	
 }

@@ -13,7 +13,9 @@ import java.util.Map;
  * 获取token类
  */
 public class AuthService {
-    public static void main(String[] args){
+	
+    public static void main(String[] args)
+    {
         System.out.println(getAuth("PSce6S7M7WVRVyIux15iDToC", "fvzwcYociG2GYnsZppKqEbSlUDQaQ9Sd"));
     }
  

@@ -11,14 +11,17 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.Map;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CommonUtils {
 	
-public static String MYURL = "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT/";
+public static String MYURL = "https://www.nest-lab.com/wx-te-1.0.0-RELEASE/";
 //public static String MYURL = "http://49.123.68.14:8080/";
 
 //处理微信小程序拍照发过来的照片	
@@ -231,8 +234,27 @@ public static boolean deleteFolder(String sPath) {
         }  
     }  
 }
-public static String uuid()
-{
-	return UUID.randomUUID().toString().replaceAll("-", "");
-}
+	public static String uuid()
+	{
+		return UUID.randomUUID().toString().replaceAll("-", "");
+	}
+	/**
+	 * 通过正则表达式的方式获取字符串中指定字符的个数
+	 * @param text 指定的字符串
+	 * @param regx 指定包含的规则
+	 * @return 指定字符的个数
+	 */
+	public static int pattern(String text,String regx) {
+	    // 根据指定的字符构建正则
+	    Pattern pattern = Pattern.compile(regx);
+	    // 构建字符串和正则的匹配
+	    Matcher matcher = pattern.matcher(text);
+	    int count = 0;
+	    // 循环依次往下匹配
+	    while (matcher.find()){ // 如果匹配,则数量+1
+	        count++;
+	    }
+	    return  count;
+	}
+
 }

@@ -1,8 +1,12 @@
 package com.meanlam.te.web;
 
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,7 +34,7 @@ public class TeacherConrtoller {
 	@RequestMapping(value = "/topFiveTeachers", method = RequestMethod.GET)
 	public Map<String, Object> topFiveTeachers(String tAffiliation) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
-		List<Teacher> teachers = teacherService.listTopFiveTeacher(tAffiliation);
+		List<Teacher> teachers = teacherService.listTopFiveTeacher(tAffiliation);		
 		modelMap.put("success", teachers);
 		return modelMap;
 	}
@@ -48,6 +52,53 @@ public class TeacherConrtoller {
 	public Map<String, Object> findByTeacherId(String tId) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		Teacher teacher = teacherService.findByTeacherId(tId);
+		
+		Calendar cal=Calendar.getInstance();      
+		int year_now = cal.get(Calendar.YEAR); 	
+		if (teacher.gettPublishedPaper() != null)
+		{
+			List<String> years = new ArrayList<>();
+			List<String> papers = new ArrayList<>();
+			for (int i = 2011; i <= year_now; i++)
+			{	
+				years.add(i+"年");
+				papers.add(0,CommonUtils.pattern(teacher.gettPublishedPaper(), i+"")+"");
+			}	
+			teacher.setPapers(papers);
+			teacher.setYears(years);
+		}
+		else 
+		{
+			List<String> years = new ArrayList<>();
+			List<String> papers = new ArrayList<>();
+			for (int i = 2011; i <= year_now; i++)
+			{	
+				years.add(i+"年");
+				papers.add(0,0+"");
+			}	
+			teacher.setPapers(papers);
+			teacher.setYears(years);
+		}
+			
+		if (teacher.gettProjects() != null)
+		{
+			List<String> projects = new ArrayList<>();
+			for (int i = 2011; i <= year_now; i++)
+			{		
+				projects.add(0,CommonUtils.pattern(teacher.gettProjects(), i+"")+"");				
+			}
+			teacher.setProjects(projects);
+		}
+		else 
+		{
+			List<String> projects = new ArrayList<>();
+			for (int i = 2011; i <= year_now; i++)
+			{		
+				projects.add(0,0 +"");				
+			}
+			teacher.setProjects(projects);
+		}
+				
 		modelMap.put("success", teacher);
 		return modelMap;
 	}

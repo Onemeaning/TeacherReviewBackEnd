@@ -2,7 +2,9 @@ package com.meanlam.te.service;
 
 import java.util.List;
 
+
 import com.meanlam.te.entity.Comment;
+import com.meanlam.te.entity.CommentType;
 
 public interface CommentService {
 
@@ -13,4 +15,6 @@ public interface CommentService {
 	boolean addComment(Comment comment);
 
 	boolean deleteComment(Comment comment);
+
+	List<CommentType> getTeacherTag(String tId);
 }

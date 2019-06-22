@@ -1,16 +1,20 @@
 package com.meanlam.te.service.imp;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.meanlam.te.dao.CommentDao;
 import com.meanlam.te.dao.ThumbsUpCountsDao;
 import com.meanlam.te.entity.Comment;
+import com.meanlam.te.entity.CommentType;
 import com.meanlam.te.service.CommentService;
 
 @Service
 public class CommentServiceImp implements CommentService{
+	String[] evaluation = new String[] {"良师益友","温和可亲","为人师表","治学严谨","和蔼可亲","落落大方"};
 	@Autowired
 	private CommentDao commentDao;
 	
@@ -20,7 +24,15 @@ public class CommentServiceImp implements CommentService{
 	
 	@Override
 	public List<Comment> showATeacherComments(String tId) {
-		return commentDao.quaryComment(tId);
+		if (tId != null)
+		{
+			return commentDao.quaryComment(tId);
+		}
+		else 
+		{
+			throw new RuntimeException("查询评论时老师的ID不能为空！:");
+		}
+		
 	}
 
 	@Override
@@ -72,6 +84,34 @@ public class CommentServiceImp implements CommentService{
 		} else
 		{
 			throw new RuntimeException("未指定删除那一条评论！！！");
+		}
+	}
+
+	@Override
+	public List<CommentType> getTeacherTag(String tId) {
+		if (tId != null)
+		{
+			List<CommentType> list = commentDao.getCommentTypes(tId);
+			for (CommentType commentType : list)
+			{
+				if (commentType.getuType().equals("0"))
+				{
+					commentType.setuType(evaluation[(int)(Math.random()*6)]);
+				}
+				else if (commentType.getuType().equals("1")) 
+				{
+					commentType.setuType("平易近人");
+				}				
+				else 
+				{
+					commentType.setuType("科研巨匠");
+				}
+			}
+			return list;
+		}
+		else
+		{
+			throw new RuntimeException("为添加查询老师的ID");
 		}
 	}
 

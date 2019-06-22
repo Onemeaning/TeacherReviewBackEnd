@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.meanlam.te.entity.Comment;
 import com.meanlam.te.service.CommentService;
+import com.meanlam.te.util.BaiduNIP;
 
 @RestController
 @RequestMapping("/superadmin")
@@ -41,6 +42,7 @@ public class CommentController {
 	private Map<String, Object> addComment(@RequestBody Comment comment)
 	{
 		Map<String, Object> modelMap = new HashMap<String, Object>();
+		comment.setuType(BaiduNIP.sentimentAnalysis(comment.getuComments()));
 		modelMap.put("success", commentService.addComment(comment));
 		return modelMap;
 	}
@@ -57,7 +59,16 @@ public class CommentController {
 		return modelMap;
 	}
 	
-	
+	/*
+	 *映射老师标签（科研大佬、热心负责、为人师表）
+	 */
+	@RequestMapping(value = "/getTeacherTag", method = RequestMethod.GET)
+	private Map<String, Object> getTeacherTag(String tId)
+	{
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		modelMap.put("success", commentService.getTeacherTag(tId));
+		return modelMap;
+	}
 	
 	
 }

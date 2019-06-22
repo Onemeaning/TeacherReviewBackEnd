@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.meanlam.te.entity.Comment;
+import com.meanlam.te.entity.CommentType;
 
 public interface CommentDao {
 	List<Comment> quaryComment(String tId);
@@ -18,6 +19,9 @@ public interface CommentDao {
 	
 	//更新id
 	int updateCommnetId(@Param("newId") String tId, @Param("oldId")String oldteacherId);
+
+	
+	List<CommentType> getCommentTypes(String tId);
 	
 
 }

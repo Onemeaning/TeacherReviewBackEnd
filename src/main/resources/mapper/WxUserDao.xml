@@ -28,6 +28,7 @@
 	<update id="updateWxUserInfo" parameterType="com.meanlam.te.entity.WxUserInfo">
 	 update user_info
 	 <set>
+		  <if test="uNickname != null "> u_nickname = #{uNickname},</if>
 	 	  <if test="uSchool != null "> u_school = #{uSchool},</if>
 		  <if test="uCollege != null "> u_college = #{uCollege},</if>
 		  <if test="uDepartment != null "> u_department = #{uDepartment},</if>

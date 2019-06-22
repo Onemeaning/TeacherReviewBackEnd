@@ -3,17 +3,29 @@
 <mapper namespace="com.meanlam.te.dao.CommentDao" >  
 
 	 <select id="quaryComment" resultType="com.meanlam.te.entity.Comment">
-		SELECT source_id,u_photo,u_comments,u_nickName,u_insertTime
+		SELECT source_id,u_photo,u_comments,u_nickName,u_insertTime,u_type
 		FROM user_comment
-		WHERE t_id=#{tId} 
+		WHERE t_id = #{tId} 
 		ORDER BY u_insertTime
 		DESC	
-	</select>
-		
+	 </select>
+	
+	
+	 <select id="getCommentTypes" resultType="com.meanlam.te.entity.CommentType">
+		SELECT u_type,count(*) countsNum
+		FROM user_comment
+		WHERE t_id = #{tId} 
+		group by u_type	
+		limit 0,3
+	 </select>
+	 
+	 
+	 
+	 	
 	<insert id="insertComment" parameterType="com.meanlam.te.entity.Comment">
 		INSERT INTO 
-			user_comment(source_id,u_photo,u_comments,u_nickName,u_insertTime,t_id)
-		VALUES (#{sourceId},#{uPhoto},#{uComments},#{uNickName},#{uInsertTime},#{tId})
+			user_comment(source_id,u_photo,u_comments,u_nickName,u_insertTime,t_id,u_type)
+		VALUES (#{sourceId},#{uPhoto},#{uComments},#{uNickName},#{uInsertTime},#{tId},#{uType})
 	</insert>
 	
 	<delete id="deleteComment" parameterType="com.meanlam.te.entity.Comment">
