@@ -62,7 +62,7 @@ public class TeacherConrtoller {
 			for (int i = 2011; i <= year_now; i++)
 			{	
 				years.add(i+"年");
-				papers.add(0,CommonUtils.pattern(teacher.gettPublishedPaper(), i+"")+"");
+				papers.add(CommonUtils.pattern(teacher.gettPublishedPaper(), i+"")+"");
 			}	
 			teacher.setPapers(papers);
 			teacher.setYears(years);
@@ -74,7 +74,7 @@ public class TeacherConrtoller {
 			for (int i = 2011; i <= year_now; i++)
 			{	
 				years.add(i+"年");
-				papers.add(0,0+"");
+				papers.add(0+"");
 			}	
 			teacher.setPapers(papers);
 			teacher.setYears(years);
@@ -85,7 +85,7 @@ public class TeacherConrtoller {
 			List<String> projects = new ArrayList<>();
 			for (int i = 2011; i <= year_now; i++)
 			{		
-				projects.add(0,CommonUtils.pattern(teacher.gettProjects(), i+"")+"");				
+				projects.add(CommonUtils.pattern(teacher.gettProjects(), i+"")+"");				
 			}
 			teacher.setProjects(projects);
 		}
@@ -94,7 +94,7 @@ public class TeacherConrtoller {
 			List<String> projects = new ArrayList<>();
 			for (int i = 2011; i <= year_now; i++)
 			{		
-				projects.add(0,0 +"");				
+				projects.add(0 +"");				
 			}
 			teacher.setProjects(projects);
 		}

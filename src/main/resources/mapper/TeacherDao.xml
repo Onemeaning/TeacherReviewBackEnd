@@ -15,14 +15,14 @@
 	private String tDetailLink; -->
 	
 	<select id="findByAffiliation" parameterType="string" resultType="com.meanlam.te.entity.Teacher">
-			SELECT *
+			SELECT t_id,t_name,t_affiliation,t_email,t_introduction,t_researchInterest,t_photo,t_thumpUpCounts,t_detailLink,t_admissions
 			FROM teacher_info
 			WHERE t_affiliation LIKE #{tAffiliation}
 			ORDER BY t_thumpUpCounts DESC 
 	</select>
 	
 	<select id="findTopFive"  resultType="com.meanlam.te.entity.Teacher">
-			SELECT *
+			SELECT t_id,t_name,t_affiliation,t_email,t_introduction,t_researchInterest,t_photo,t_thumpUpCounts,t_detailLink,t_admissions
 			FROM teacher_info
 			WHERE t_affiliation LIKE #{tAffiliation}
 			ORDER BY t_thumpUpCounts DESC 
@@ -43,7 +43,7 @@
 			WHERE t_affiliation = #{tAffiliation} AND t_name  = #{tName}
 	</select>
 	
-	
+
 	 <update id="updateThumpUp" parameterType="com.meanlam.te.entity.Teacher" >
 		 UPDATE teacher_info
 		 <set>
@@ -61,6 +61,7 @@
 		WHERE t_affiliation = #{tAffiliation} AND t_name = #{tName}
     </update>
     
+    
 	<update id="updateTeacherDetails" parameterType="com.meanlam.te.entity.Teacher" >
 		 UPDATE teacher_info
 		 <set>
@@ -68,15 +69,14 @@
 		 	<if test="tAffiliation != null"> t_affiliation = #{tAffiliation},</if>
 		 	<if test="tEmail != null "> t_email = #{tEmail},</if>
 		 	<if test="tIntroduction != null"> t_introduction = #{tIntroduction},</if>
-		 	<if test="tResearchInterest != null"> t_researchInterest = #{tResearchInterest},</if>
+		 	<if test="tResearchInterest != null"> t_researchInterest = #{tResearchInterest},</if>	 	
+		 	<if test="tAdmissions != null"> t_admissions = #{tAdmissions},</if>	 	
 		 	<if test="tProjects != null"> t_projects = #{tProjects},</if>
 		 	<if test="tPublishedPaper != null"> t_publishedPaper = #{tPublishedPaper},</if>
 		 </set>		 
 		WHERE t_id = #{tId}
     </update>
 	
-
-
 	<insert id="addATeacher" useGeneratedKeys="true" keyProperty="tId" 
 		keyColumn="t_id" parameterType="com.meanlam.te.entity.Teacher">
 		INSERT INTO 

@@ -9,6 +9,7 @@ public class Teacher {
 	private String tEmail;
 	private String tIntroduction;
 	private String tResearchInterest;
+	private String tAdmissions;// 老师的招生需求
 	private String tPublishedPaper;
 	private String tProjects;
 	private String tPhoto;
@@ -17,6 +18,13 @@ public class Teacher {
 	private List<String> projects;
 	private List<String> papers;
 	private List<String> years;
+	
+	public String gettAdmissions() {
+		return tAdmissions;
+	}
+	public void settAdmissions(String tAdmissions) {
+		this.tAdmissions = tAdmissions;
+	}
 	
 	public List<String> getProjects() {
 		return projects;
