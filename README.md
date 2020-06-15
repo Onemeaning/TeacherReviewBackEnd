@@ -6,11 +6,11 @@
      <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/screenshot/logo.png" height = "90"  alt = "授权界面"/> 
 </div>
 
->>>>>前端项目地址：https://github.com/Onemeaning/WeChatProject</br>
->>>详细介绍文档：https://github.com/Onemeaning/TeacherReviewBackEnd/blob/master/师生互选助手介绍文档.pdf</br>
->>>竞赛成果——华中赛区一等奖，全国三等奖（1000元奖金+1000元服务器代金券）：</br>
+>>>>> **前端项目地址：** https://github.com/Onemeaning/WeChatProject</br>
+>>>**详细介绍文档：** https://github.com/Onemeaning/TeacherReviewBackEnd/blob/master/师生互选助手介绍文档.pdf</br>
+>>>**获得成果** ——华中赛区一等奖，全国三等奖（1000元奖金+1000元服务器代金券）：</br>
 <div align=center>
-     <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/证书.png" height = "400"  alt = "授权界面"/> 
+     <img src="https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/证书.png" height = "500"  alt = "授权界面"/> 
 </div>
 
 ## 目录
