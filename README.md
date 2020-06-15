@@ -1,4 +1,3 @@
-# TeacherReview-back-end
 >>>>>>>>>>>>>>>># 师生互选助手
 >>>>>这是后端项目源码，项目基于SpringBoot+MyBatis框架快速搭建，目前只支持部分功能。
 
