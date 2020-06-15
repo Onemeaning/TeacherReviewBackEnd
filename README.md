@@ -36,11 +36,12 @@
 ## 二、DEMO演示
      
    #### 4.1 GIF演示
-       由于文档对于单个GIF时间不能超过1分钟，这里将三分钟的演示效果用三个GIF图来演示，效果不太好，</br>大家可以点击下方的演示视频链接观看详细介绍；
+       由于文档对于单个GIF时间不能超过1分钟，这里将三分钟的演示效果用三个GIF图来演示，效果不太好，
+       大家可以点击下方的演示视频链接观看详细介绍；
        
 <div align=center>
- <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p1.gif height = "400" alt = "演示demo1"/>&nbsp;&nbsp;&nbsp;&nbsp;
- <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p2.gif height = "400" alt = "演示demo2"/>&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p1.gif height = "400" alt = "演示demo1"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p2.gif height = "400" alt = "演示demo2"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <img src=https://github.com/Onemeaning/TeacherReview-back-end/blob/master/src/main/resources/static/demo_gif/demo_p3.gif height = "400" alt = "演示demo3"/>
 </div> 
      
