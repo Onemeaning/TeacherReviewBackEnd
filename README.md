@@ -7,6 +7,7 @@
 </div>
 
 >>>>>前端项目地址：https://github.com/Onemeaning/WeChatProject
+>>>>>详细介绍文档：https://github.com/Onemeaning/TeacherReviewBackEnd/blob/master/师生互选助手介绍文档.pdf
 
 ## 目录
 * [项目背景](#项目背景)
